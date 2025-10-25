@@ -1,0 +1,430 @@
+/* ==========================================================================
+   COLOR PALETTE
+   ========================================================================== */
+/* CSS custom properties for consistent theming throughout the site */
+:root {
+  --blue-1: #355C7D;  /* Lapis Lazuli - Primary blue for buttons, headers */
+  --yellow: #FFC857;  /* Golden Yellow - Accent color, highlights */
+  --grey-1: #E5E5E5;  /* Platinum - Light borders, subtle elements */
+  --grey-2: #A8B0B9;  /* French Grey - Secondary text, metadata */
+  --grey-3: #2E2E2E;  /* Jet - Primary text color */
+  --night-1: #060A0E;  /* Night - Primary writing color */
+}
+
+/* ==========================================================================
+   GOOGLE FONTS IMPORT
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* ==========================================================================
+   RESET & BASE STYLES
+   ========================================================================== */
+/* Basic CSS reset and global element styling */
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+
+/* ==========================================================================
+   TYPOGRAPHY & LAYOUT
+   ========================================================================== */
+/* Global typography settings and main layout container */
+body {
+  font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  color: var(--grey-3);
+  background: linear-gradient(180deg, var(--yellow) 0%, var(--blue-1) 100%);
+  background-attachment: fixed;
+}
+
+/* Main content container with responsive width */
+.container { width: min(1100px, 92%); margin: 0 auto; }
+
+/* ==========================================================================
+   HEADER & NAVIGATION
+   ========================================================================== */
+/* Sticky header with glassmorphism effect and navigation */
+.site-header { 
+  position: sticky; 
+  top: 0; 
+  z-index: 10; 
+  background: rgba(11,19,43,0.9); 
+  backdrop-filter: blur(6px); 
+  border-bottom: 1px solid rgba(255,255,255,0.06); 
+}
+.header-inner { 
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between; 
+  padding: 14px 0; 
+}
+.brand { 
+  color: #fff; 
+  font-weight: 700; 
+  letter-spacing: 0.3px; 
+}
+.nav a { 
+  color: #cfd6ff; 
+  margin-left: 18px; 
+  padding: 8px 10px; 
+  border-radius: 8px; 
+  transition: background .2s ease; 
+}
+.nav a:hover { 
+  background: rgba(255,255,255,0.08); 
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+/* Site footer with subtle styling */
+.site-footer { 
+  margin-top: 60px; 
+  padding: 30px 0; 
+  color: #c9d0da; 
+  background: rgba(255,255,255,0.04); 
+  border-top: 1px solid rgba(255,255,255,0.06); 
+}
+.footer-inner { 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+}
+
+/* ==========================================================================
+   HOMEPAGE HERO SECTION
+   ========================================================================== */
+/* Main hero area on homepage with title and subtitle */
+.home-hero { 
+  text-align: center; 
+  color: var(--night-1); 
+  padding: 42px 0 10px; 
+}
+.home-title { 
+  font-size: 40px; 
+  margin: 0; 
+  color: var(--night-1);
+}
+.home-subtitle { 
+  color: var(--night-1); 
+  margin: 8px 0 0; 
+}
+
+/* ==========================================================================
+   POSTS GRID LAYOUT
+   ========================================================================== */
+/* Responsive grid system for displaying blog post cards */
+.posts-grid { 
+  margin-top: 24px; 
+}
+.grid { 
+  display: grid; 
+  grid-template-columns: 1fr; 
+  gap: 22px; 
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Responsive design for mobile */
+@media (max-width: 768px) {
+  .grid {
+    max-width: 100%;
+    padding: 0 16px;
+  }
+  
+  .post-card {
+    flex-direction: column;
+    min-height: auto;
+  }
+  
+  .post-media {
+    width: 100%;
+    height: 200px;
+  }
+}
+
+/* ==========================================================================
+   POST CARDS
+   ========================================================================== */
+/* Individual post card styling with hover effects */
+.post-card { 
+  background: #ffffff; 
+  border-radius: 14px; 
+  overflow: hidden; 
+  border: 1px solid var(--grey-1); 
+  box-shadow: 0 10px 30px rgba(0,0,0,0.18); 
+  transition: transform .2s ease, box-shadow .2s ease; 
+  display: flex;
+  flex-direction: row;
+  min-height: 200px;
+}
+.post-card:hover { 
+  transform: translateY(-3px); 
+  box-shadow: 0 16px 40px rgba(0,0,0,0.22); 
+}
+
+/* Post card media (images) with fallback gradient */
+.post-media { 
+  display: block; 
+  width: 300px;
+  flex-shrink: 0;
+  background: var(--blue-1); 
+  overflow: hidden;
+  position: relative;
+}
+.post-media img { 
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover; 
+  transition: transform 0.3s ease;
+}
+.post-media:hover img {
+  transform: scale(1.05);
+}
+.media-fallback { 
+  width: 100%; 
+  height: 100%; 
+  background: linear-gradient(135deg, var(--blue-1), var(--yellow)); 
+}
+
+/* Post card content area */
+.post-content { 
+  padding: 20px 24px; 
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-between;
+}
+.post-title { 
+  margin: 0 0 6px; 
+  font-size: 20px; 
+  color: var(--night-1); 
+}
+.post-meta { 
+  color: var(--night-1); 
+  font-size: 13px; 
+  margin-bottom: 8px; 
+}
+.post-excerpt { 
+  color: #3a3a3a; 
+  margin: 0 0 12px; 
+  line-height: 1.55; 
+  flex-grow: 1;
+}
+
+/* Button wrapper to push button to bottom */
+.post-button-wrapper {
+  margin-top: auto;
+  padding-top: 8px;
+}
+/* ==========================================================================
+   READ ARTICLE BUTTON
+   ========================================================================== */
+/* Enhanced "Read Article" button with gradient and hover effects */
+.post-link { 
+  display: inline-block; 
+  color: #ffffff; 
+  background: linear-gradient(135deg, var(--blue-1), var(--night-1)); 
+  font-weight: 600; 
+  padding: 12px 20px; 
+  border-radius: 12px; 
+  box-shadow: 0 6px 20px rgba(53, 92, 125, 0.3); 
+  transition: all 0.3s ease; 
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 14px;
+}
+.post-link:hover { 
+  transform: translateY(-2px); 
+  box-shadow: 0 8px 25px rgba(53, 92, 125, 0.4);
+  background: linear-gradient(135deg, var(--night-1), var(--blue-1));
+}
+.post-link:active { 
+  transform: translateY(0px); 
+  box-shadow: 0 4px 15px rgba(53, 92, 125, 0.3);
+}
+
+/* ==========================================================================
+   INDIVIDUAL POST PAGES
+   ========================================================================== */
+/* Hero image section for individual blog posts */
+.post-hero { 
+  aspect-ratio: 21/9; 
+  background: var(--blue-1); 
+  border-radius: 16px; 
+  overflow: hidden; 
+  border: 1px solid var(--grey-1); 
+  box-shadow: 0 14px 40px rgba(0,0,0,0.25); 
+  margin: 18px 0 22px; 
+}
+.post-hero img { 
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover; 
+}
+
+/* Post header with title and metadata */
+.post-header { 
+  color: #fff; 
+  margin: 6px 0 8px; 
+}
+.post-header .post-title { 
+  color: var(--night-1); 
+  font-size: 38px; 
+  margin-bottom: 6px; 
+}
+.post-header .post-meta { 
+  color: var(--night-1); 
+}
+
+/* Main post content area with white background */
+.post-body { 
+  background: #ffffff; 
+  color: var(--night-1); 
+  border-radius: 16px; 
+  border: 1px solid var(--grey-1); 
+  padding: 22px; 
+  box-shadow: 0 10px 30px rgba(0,0,0,0.18); 
+}
+.post-body p { 
+  line-height: 1.75; 
+}
+.post-body h2, .post-body h3 { 
+  color: var(--night-1); 
+}
+.post-body pre, .post-body code { 
+  background: #0f1430; 
+  color: #eaf0ff; 
+  border-radius: 8px; 
+  padding: 3px 6px; 
+}
+.post-body pre { 
+  padding: 12px; 
+  overflow: auto; 
+}
+
+/* ==========================================================================
+   COLLAPSIBLE CODE BLOCKS
+   ========================================================================== */
+/* Interactive collapsible sections for code examples in posts */
+.post-body details { 
+  margin: 16px 0; 
+  display: block;
+}
+.post-body details summary { 
+  cursor: pointer; 
+  padding: 8px 12px; 
+  background: var(--blue-1); 
+  color: white; 
+  border-radius: 80px; 
+  font-weight: 600;
+  transition: background 0.2s ease;
+  display: inline-block;
+  user-select: none;
+}
+.post-body details summary:hover { 
+  background: var(--night-1); 
+}
+.post-body details[open] summary { 
+  border-radius: 8px 8px 0 0; 
+}
+.post-body details pre { 
+  margin: 0; 
+  border-radius: 0 0 8px 8px; 
+  line-height: 1.6;
+  padding: 16px;
+}
+
+/* ==========================================================================
+   POST NAVIGATION
+   ========================================================================== */
+/* Previous/Next post navigation links */
+.post-nav { 
+  display: flex; 
+  justify-content: space-between; 
+  margin: 18px 0 8px; 
+}
+.post-nav a { 
+  color: #eaf0ff; 
+  background: rgba(255,255,255,0.08); 
+  padding: 8px 12px; 
+  border-radius: 10px; 
+  border: 1px solid rgba(255,255,255,0.12); 
+}
+
+/* ==========================================================================
+   IMAGE STYLING
+   ========================================================================== */
+/* Center images in post content */
+.post-body img {
+  display: block;
+  margin: 20px auto;
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+
+/* Image size utilities */
+.post-body .img-small { max-width: 40%; }
+.post-body .img-medium { max-width: 60%; }
+.post-body .img-large { max-width: 80%; }
+.post-body .img-full { max-width: 100%; }
+
+/* Thumbnail size utilities */
+.post-media.thumb-small { aspect-ratio: 4/3; }
+.post-media.thumb-medium { aspect-ratio: 16/9; }
+.post-media.thumb-large { aspect-ratio: 21/9; }
+.post-media.thumb-square { aspect-ratio: 1/1; }
+
+
+/* ==========================================================================
+   TEXT HIGHLIGHTING & IMPORTANCE
+   ========================================================================== */
+/* Highlighting effects for important text content */
+/* To use the callout, use the following code:
+<div class="callout">
+  Hello World
+</div>
+*/
+.post-body .callout {
+  background: rgba(255, 200, 87, 0.1);
+  border: 2px solid var(--yellow);
+  border-radius: 12px;
+  padding: 16px;
+  margin: 16px 0;
+  position: relative;
+}
+
+.post-body .callout p {
+  margin: 0;
+  color: var(--night-1);
+  font-weight: 500;
+}
+
+/* Vertical bar highlight effect */
+.post-body .story-bar {
+  background: var(--grey-1);
+  border-left: 8px solid var(--blue-1);
+  padding: 12px 16px;
+  margin: 12px 0;
+  border-radius: 0 12px 12px 0;
+  position: relative;
+}
+
+.post-body .story-bar p {
+  margin: 0;
+  color: var(--night-1);
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   UTILITY CLASSES
+   ========================================================================== */
+/* General utility classes for spacing and layout */
+.site-main { 
+  padding: 18px 0 40px; 
+}
+
+
+

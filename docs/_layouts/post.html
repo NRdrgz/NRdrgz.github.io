@@ -1,0 +1,34 @@
+---
+layout: default
+---
+<article class="post">
+  {% if page.hero_image %}
+  <div class="post-hero">
+    <img src="{{ page.hero_image | relative_url }}" alt="{{ page.title }} cover" loading="eager" />
+  </div>
+  {% elsif page.image %}
+  <div class="post-hero">
+    <img src="{{ page.image | relative_url }}" alt="{{ page.title }} cover" loading="eager" />
+  </div>
+  {% endif %}
+
+  <header class="post-header">
+    <h1 class="post-title">{{ page.title }}</h1>
+    <div class="post-meta">{{ page.date | date: "%B %-d, %Y" }}</div>
+  </header>
+
+  <div class="post-body">
+    {{ content }}
+  </div>
+
+  <nav class="post-nav">
+    {% if page.previous %}
+      <a class="prev" href="{{ page.previous.url | relative_url }}">← {{ page.previous.title }}</a>
+    {% endif %}
+    {% if page.next %}
+      <a class="next" href="{{ page.next.url | relative_url }}">{{ page.next.title }} →</a>
+    {% endif %}
+  </nav>
+</article>
+
+

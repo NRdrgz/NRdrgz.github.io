@@ -1,0 +1,36 @@
+---
+layout: default
+---
+<section class="home-hero">
+  <h1 class="home-title">{{ site.title | default: "Welcome" }}</h1>
+  {% if site.description %}
+  <p class="home-subtitle">{{ site.description }}</p>
+  {% endif %}
+</section>
+
+<section class="posts-grid">
+  <div class="grid">
+    {% assign posts_list = paginator.posts | default: site.posts %}
+    {% for post in posts_list %}
+      <article class="post-card">
+        <a class="post-media" href="{{ post.url | relative_url }}" aria-label="{{ post.title }}">
+          {% if post.thumbnail %}
+            <img src="{{ post.thumbnail | relative_url }}" alt="{{ post.title }} cover" loading="lazy" />
+          {% elsif post.image %}
+            <img src="{{ post.image | relative_url }}" alt="{{ post.title }} cover" loading="lazy" />
+          {% else %}
+            <div class="media-fallback" aria-hidden="true"></div>
+          {% endif %}
+        </a>
+        <div class="post-content">
+          <h2 class="post-title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+          <div class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</div>
+          <p class="post-excerpt">{{ post.excerpt | strip_html | truncate: 140 }}</p>
+          <a class="post-link" href="{{ post.url | relative_url }}">Read article</a>
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+</section>
+
+

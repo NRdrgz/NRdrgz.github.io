@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ page.title | default: site.title }}</title>
+    <link rel="stylesheet" href="{{ "/assets/css/theme.css" | relative_url }}">
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <nav class="nav">
+          <a href="{{ "/" | relative_url }}">Home</a>
+          <a href="{{ "/about/" | relative_url }}">About</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="site-main container">
+      {{ content }}
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>© {{ site.time | date: "%Y" }} {{ "Nicolas Rodriguez" }}</p>
+      </div>
+    </footer>
+  </body>
+  </html>
+
+
