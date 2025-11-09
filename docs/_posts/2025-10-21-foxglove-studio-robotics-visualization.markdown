@@ -1,13 +1,13 @@
 ---
 layout: post
-title: " ... and used Foxglove through the journey"
-date: 2025-10-21
+title: "(Part 2) ... and used Foxglove through the journey"
+date: 2025-10-22
 thumbnail: /assets/images/posts/thumbnails/foxglove_thumbnail.jpg
 hero_image: /assets/images/posts/hero-images/foxglove_hero.jpg
 excerpt: "How Foxglove Studio transformed my robotics development workflow and why it's become an essential tool for visualizing data and debugging"
 ---
 
-This article is a continuation of the previous one {% include link_prominent.html url="https://nrdrgz.github.io/2025/10/22/building-just1-autonomous-robot/" text="Just1: How I built a small autonomous robot ..." %}.   
+This article is a continuation of the previous one {% include link_prominent.html url="https://nrdrgz.github.io/2025/10/21/building-just1-autonomous-robot/" text="Just1: How I built a small autonomous robot ..." %}.   
 *I am in no way affiliated with Foxglove, and this article only reflects my personal experience.*
 <div class="story-bar">
 Coming from a company where dozens of engineers work on a single tool to visualize sensor data, I knew I couldn't afford the time and resources to reinvent the wheel for my personal robotics projects. That's when I discovered Foxglove, and it completely changed how I approach robotics development.

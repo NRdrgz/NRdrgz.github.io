@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Just1: How I built a small autonomous robot ..."
-date: 2025-10-22
+title: "(Part 1) Just1: How I built a small autonomous robot ..."
+date: 2025-10-21
 thumbnail: /assets/images/posts/thumbnails/just1_thumbnail.jpg
 hero_image: /assets/images/posts/hero-images/just1_hero.jpg
 excerpt: "How I built Just1, a $250 Mecanum wheel robot that can navigate and avoid obstacles autonomously."
@@ -74,7 +74,7 @@ One of the most surprising discoveries was how much Foxglove Studio transformed 
 - **Control**: Sending navigation goals through an intuitive interface
 - **Analysis**: Reviewing recorded data to understand what went wrong (or right)
 
-Foxglove turned what could have been a command-line nightmare into an intuitive, visual experience. It's like having a cockpit for your robot. I've written a  {% include link_prominent.html url="https://nrdrgz.github.io/2025/10/21/foxglove-studio-robotics-visualization/" text="dedicated blog post on Foxglove"%}.
+Foxglove turned what could have been a command-line nightmare into an intuitive, visual experience. It's like having a cockpit for your robot. I've written a  {% include link_prominent.html url="https://nrdrgz.github.io/2025/10/22/foxglove-studio-robotics-visualization/" text="dedicated blog post on Foxglove"%}.
 
 
 ## The Bigger Picture
