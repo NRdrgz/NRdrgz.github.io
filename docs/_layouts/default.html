@@ -4,7 +4,24 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{{ page.title | default: site.title }}</title>
+    <link rel="icon" type="image/x-icon" href="{{ "/favicon.ico" | relative_url }}">
     <link rel="stylesheet" href="{{ "/assets/css/theme.css" | relative_url }}">
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']],
+          processEscapes: true,
+          processEnvironments: true
+        },
+        options: {
+          skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+        }
+      };
+    </script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   </head>
   <body>
     <header class="site-header">
@@ -25,6 +42,14 @@
         <p>© {{ site.time | date: "%Y" }} {{ "Nicolas Rodriguez" }}</p>
       </div>
     </footer>
+    <script>
+      // Ensure MathJax processes the page after content loads
+      window.addEventListener('load', function() {
+        if (window.MathJax && window.MathJax.typesetPromise) {
+          MathJax.typesetPromise();
+        }
+      });
+    </script>
   </body>
   </html>
 

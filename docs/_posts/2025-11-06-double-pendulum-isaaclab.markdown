@@ -91,7 +91,9 @@ Here is a gif showing our 4,096 instances learning how to balance themselves in 
 
 ## Under the hood
 
-I'll write a whole article later about how reinforcement learning actually works, what PPO does, and how neural networks learn from rewards. For now, just know that the agent tries different things, figures out what works, and gets better over millions of simulation steps.
+If you want to understand the magic behind the scenes, check out {% include link_prominent.html url="https://nrdrgz.github.io/2025/12/02/double-pendulum-rl-deep-dive/" text="Part 2: Behind the scenes" %}. I explain how reinforcement learning actually works, what PPO does, and how neural networks learn from rewards.
+
+For now, just know that the agent tries different things, figures out what works, and gets better over millions of simulation steps.
 
 ## Our trained policy
 
