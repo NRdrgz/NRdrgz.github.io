@@ -23,9 +23,26 @@ email: nicolasrodriguez01dev@pm.me
 description: >- # this means to ignore newlines until "baseurl:"
   Hope you'll learn something new!
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site
+url: "https://nrdrgz.github.io" # the base hostname & protocol for your site
 github_username:  NRdrgz
 linkedin_username:  nicolasrdrgz
+
+# SEO / social metadata (used by jekyll-seo-tag)
+author: Nicolas Rodriguez
+twitter:
+  card: summary_large_image
+social:
+  name: Nicolas Rodriguez
+  links:
+    - https://github.com/NRdrgz
+    - https://www.linkedin.com/in/nicolasrdrgz
+
+# Plugins (all bundled with the github-pages gem)
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
 # Build settings
 permalink: /:categories/:year/:month/:day/:title/
 

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" role="img" aria-label="Small errors push the robot out of the states seen in training, and errors compound">
+<title>Small errors push the robot out of the states seen in training, and errors compound</title>
+<defs>
+  <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 z" fill="#5b6470"/>
+  </marker>
+  <style>
+    text { font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; font-size: 19px; fill: #2E2E2E; }
+    .b { font-weight: 600; }
+    .m { fill: #5b6470; font-size: 16px; }
+    .s { font-size: 15px; fill: #5b6470; }
+    .arrow { stroke: #5b6470; stroke-width: 2; fill: none; marker-end: url(#arr); }
+  </style>
+</defs>
+<rect width="800" height="460" fill="#ffffff"/>
+
+<path d="M60,330 C260,330 460,130 740,120" stroke="#355C7D" stroke-opacity="0.13" stroke-width="64" stroke-linecap="round" fill="none"/>
+<path d="M60,330 C260,330 460,130 740,120" stroke="#355C7D" stroke-width="3.5" fill="none"/>
+<path d="M60,330 C180,331 280,300 380,290 C480,285 580,330 720,400" stroke="#C2410C" stroke-width="3.5" stroke-dasharray="9 7" fill="none"/>
+<circle cx="60" cy="330" r="8" fill="#2E2E2E"/>
+<path d="M732,128 l8,-20 l8,20 z" fill="#FFC857" stroke="#C99A2E" stroke-width="2"/>
+<text x="740" y="160" text-anchor="middle" class="m">goal</text>
+<circle cx="228" cy="314" r="6" fill="#C2410C"/>
+<text x="228" y="352" text-anchor="middle" class="m">small error</text>
+<circle cx="380" cy="290" r="6" fill="#C2410C"/>
+<text x="392" y="330" class="m">unfamiliar state</text>
+<circle cx="720" cy="400" r="6" fill="#C2410C"/>
+<text x="700" y="438" text-anchor="end" class="m">never seen this: no idea what to do</text>
+<line x1="30" y1="44" x2="62" y2="44" stroke="#355C7D" stroke-width="3.5"/>
+<text x="72" y="50" class="s" style="fill:#2E2E2E">Demonstrated path</text>
+<rect x="250" y="32" width="32" height="24" rx="6" fill="#355C7D" fill-opacity="0.13"/>
+<text x="292" y="50" class="s" style="fill:#2E2E2E">States seen in training</text>
+<line x1="500" y1="44" x2="532" y2="44" stroke="#C2410C" stroke-width="3.5" stroke-dasharray="9 7"/>
+<text x="542" y="50" class="s" style="fill:#2E2E2E">What the robot actually does</text>
+
+</svg>

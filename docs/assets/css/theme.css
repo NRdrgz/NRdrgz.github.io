@@ -1,431 +1,830 @@
 /* ==========================================================================
-   COLOR PALETTE
+   ENGINEERING JOURNAL — theme.css
+   A typography-first, technical blog theme.
+   Original site palette (blue + yellow + greys), single light theme.
+   No build step: plain CSS, mobile-first, accessible.
    ========================================================================== */
-/* CSS custom properties for consistent theming throughout the site */
+
+/* ==========================================================================
+   1. DESIGN TOKENS
+   ========================================================================== */
 :root {
-  --blue-1: #355C7D;  /* Lapis Lazuli - Primary blue for buttons, headers */
-  --yellow: #FFC857;  /* Golden Yellow - Accent color, highlights */
-  --grey-1: #E5E5E5;  /* Platinum - Light borders, subtle elements */
-  --grey-2: #A8B0B9;  /* French Grey - Secondary text, metadata */
-  --grey-3: #2E2E2E;  /* Jet - Primary text color */
-  --night-1: #060A0E;  /* Night - Primary writing color */
+  /* --- Original site palette --- */
+  --blue-1:  #355C7D;  /* Lapis Lazuli — primary accent */
+  --yellow:  #FFC857;  /* Golden Yellow — highlights / callouts */
+  --grey-1:  #E5E5E5;  /* Platinum — light borders */
+  --grey-2:  #A8B0B9;  /* French Grey — subtle elements */
+  --grey-3:  #2E2E2E;  /* Jet — primary text */
+  --night-1: #060A0E;  /* Night — headings */
+
+  /* --- Surfaces & text --- */
+  --bg:            #f5f7f9;  /* page background */
+  --bg-subtle:     #eceff3;  /* subtle fills, chips */
+  --surface:       #ffffff;  /* cards, post body */
+  --surface-2:     #f6f8fa;  /* nested surfaces */
+  --text:          #2E2E2E;  /* primary text (grey-3) */
+  --text-muted:    #5b6470;  /* secondary text, metadata (AA on white) */
+  --text-faint:    #8a929c;  /* tertiary */
+  --border:        #E5E5E5;  /* hairlines, card borders (grey-1) */
+  --border-strong: #d4d9df;
+
+  /* --- Accent (blue) + highlight (yellow) --- */
+  --accent:          #355C7D; /* AA on white for links/text */
+  --accent-strong:   #284962; /* hover */
+  --accent-contrast: #ffffff; /* text on accent fills */
+  --accent-soft:     rgba(53, 92, 125, 0.08);
+  --accent-line:     rgba(53, 92, 125, 0.30);
+
+  /* --- Graph-paper grid background --- */
+  --grid-line: rgba(53, 92, 125, 0.06);
+  --grid-size: 28px;
+
+  /* --- Code token palette (on dark code background) --- */
+  --code-bg:      #0f1430;
+  --code-text:    #e6ebf5;
+  --code-comment: #8893b5;
+  --code-keyword: #ffc857;
+  --code-string:  #9fe0b0;
+  --code-number:  #ffb86b;
+  --code-func:    #8db4ff;
+  --code-builtin: #c5a3ff;
+  --code-punct:   #b7c0da;
+
+  /* --- Effects --- */
+  --shadow-sm: 0 1px 2px rgba(20, 22, 26, 0.04), 0 1px 3px rgba(20, 22, 26, 0.06);
+  --shadow-md: 0 4px 12px rgba(20, 22, 26, 0.06), 0 2px 6px rgba(20, 22, 26, 0.05);
+  --shadow-lg: 0 18px 40px rgba(20, 22, 26, 0.10), 0 6px 14px rgba(20, 22, 26, 0.06);
+  --radius:    14px;
+  --radius-sm: 9px;
+  --radius-lg: 20px;
+
+  /* --- Typography --- */
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+
+  /* --- Reading measure --- */
+  --measure: 68ch;
+  --page:    760px;
+
+  color-scheme: light;
 }
 
 /* ==========================================================================
-   GOOGLE FONTS IMPORT
+   2. RESET & BASE
    ========================================================================== */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+*, *::before, *::after { box-sizing: border-box; }
 
-/* ==========================================================================
-   RESET & BASE STYLES
-   ========================================================================== */
-/* Basic CSS reset and global element styling */
-* { box-sizing: border-box; }
-html, body { margin: 0; padding: 0; }
-img { max-width: 100%; display: block; }
-a { color: inherit; text-decoration: none; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
 
-/* ==========================================================================
-   TYPOGRAPHY & LAYOUT
-   ========================================================================== */
-/* Global typography settings and main layout container */
 body {
-  font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-  color: var(--grey-3);
-  background: linear-gradient(180deg, var(--yellow) 0%, var(--blue-1) 100%);
-  background-attachment: fixed;
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  color: var(--text);
+  /* Faint engineering graph-paper grid (blue, on the light page) */
+  background-color: var(--bg);
+  background-image:
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  background-size: var(--grid-size) var(--grid-size);
+  background-position: -1px -1px;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "kern", "liga", "calt";
+  /* Never allow content to cause horizontal scroll */
+  overflow-x: hidden;
 }
 
-/* Main content container with responsive width */
-.container { width: min(1100px, 92%); margin: 0 auto; }
+img, video { max-width: 100%; display: block; height: auto; }
 
-/* ==========================================================================
-   HEADER & NAVIGATION
-   ========================================================================== */
-/* Sticky header with glassmorphism effect and navigation */
-.site-header { 
-  position: sticky; 
-  top: 0; 
-  z-index: 10; 
-  background: rgba(11,19,43,0.9); 
-  backdrop-filter: blur(6px); 
-  border-bottom: 1px solid rgba(255,255,255,0.06); 
-}
-.header-inner { 
-  display: flex; 
-  align-items: center; 
-  justify-content: space-between; 
-  padding: 14px 0; 
-}
-.brand { 
-  color: #fff; 
-  font-weight: 700; 
-  letter-spacing: 0.3px; 
-}
-.nav a { 
-  color: #cfd6ff; 
-  margin-left: 18px; 
-  padding: 8px 10px; 
-  border-radius: 8px; 
-  transition: background .2s ease; 
-}
-.nav a:hover { 
-  background: rgba(255,255,255,0.08); 
+a { color: var(--accent); text-decoration: none; }
+a:hover { color: var(--accent-strong); }
+
+h1, h2, h3, h4 {
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--text);
 }
 
-/* ==========================================================================
-   FOOTER
-   ========================================================================== */
-/* Site footer with subtle styling */
-.site-footer { 
-  margin-top: 60px; 
-  padding: 30px 0; 
-  color: #c9d0da; 
-  background: rgba(255,255,255,0.04); 
-  border-top: 1px solid rgba(255,255,255,0.06); 
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2.5rem 0;
 }
-.footer-inner { 
-  display: flex; 
-  align-items: center; 
-  justify-content: center; 
+
+::selection { background: var(--accent-soft); }
+
+/* Visible keyboard focus everywhere */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 4px;
 }
+
+.container { width: min(var(--page), 92%); margin: 0 auto; }
 
 /* ==========================================================================
-   HOMEPAGE HERO SECTION
+   3. SKIP LINK
    ========================================================================== */
-/* Main hero area on homepage with title and subtitle */
-.home-hero { 
-  text-align: center; 
-  color: var(--night-1); 
-  padding: 42px 0 10px; 
+.skip-link {
+  position: absolute;
+  left: 0; top: 0;
+  transform: translateY(-120%);
+  background: var(--accent);
+  color: var(--accent-contrast);
+  padding: 10px 16px;
+  border-radius: 0 0 var(--radius-sm) 0;
+  font-weight: 600;
+  z-index: 1000;
+  transition: transform 0.18s ease;
 }
-.home-title { 
-  font-size: 40px; 
-  margin: 0; 
-  color: var(--night-1);
-}
-.home-subtitle { 
-  color: var(--night-1); 
-  margin: 8px 0 0; 
+.skip-link:focus { transform: translateY(0); color: var(--accent-contrast); }
+
+/* ==========================================================================
+   4. READING PROGRESS
+   ========================================================================== */
+.reading-progress {
+  position: fixed;
+  top: 0; left: 0;
+  height: 3px;
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  background: var(--accent);
+  z-index: 60;
+  will-change: transform;
 }
 
 /* ==========================================================================
-   POSTS GRID LAYOUT
+   5. HEADER & NAV
    ========================================================================== */
-/* Responsive grid system for displaying blog post cards */
-.posts-grid { 
-  margin-top: 24px; 
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: color-mix(in srgb, var(--bg) 82%, transparent);
+  backdrop-filter: saturate(1.4) blur(10px);
+  -webkit-backdrop-filter: saturate(1.4) blur(10px);
+  border-bottom: 1px solid var(--border);
 }
-.grid { 
-  display: grid; 
-  grid-template-columns: 1fr; 
-  gap: 22px; 
-  max-width: 800px;
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 0;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  font-size: 1.02rem;
+}
+.brand:hover { color: var(--text); }
+.brand-mark {
+  width: 26px; height: 26px;
+  border-radius: 7px;
+  background: var(--accent);
+  color: var(--accent-contrast);
+  display: grid;
+  place-items: center;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.82rem;
+  flex-shrink: 0;
+}
+.nav-right { display: flex; align-items: center; gap: 4px; }
+.nav { display: flex; align-items: center; gap: 2px; }
+.nav a {
+  color: var(--text-muted);
+  padding: 7px 12px;
+  border-radius: var(--radius-sm);
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: color 0.18s ease, background 0.18s ease;
+}
+.nav a:hover { color: var(--text); background: var(--bg-subtle); }
+
+/* ==========================================================================
+   6. MAIN & FOOTER
+   ========================================================================== */
+.site-main { padding: 30px 0 64px; }
+
+.site-footer {
+  margin-top: 56px;
+  padding: 30px 0;
+  border-top: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.footer-inner a { color: var(--text-muted); }
+.footer-inner a:hover { color: var(--accent); }
+.footer-meta { font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-faint); }
+
+/* ==========================================================================
+   7. HOMEPAGE HERO
+   ========================================================================== */
+.home-hero {
+  max-width: var(--page);
+  margin: 0 auto;
+  padding: 36px 0 28px;
+}
+.home-title {
+  font-size: clamp(2rem, 5vw, 2.9rem);
+  margin: 0;
+  letter-spacing: -0.03em;
+}
+.home-subtitle {
+  color: var(--text-muted);
+  font-size: clamp(1.05rem, 2.2vw, 1.2rem);
+  margin: 14px 0 0;
+  max-width: 60ch;
+  line-height: 1.55;
+}
+
+/* ==========================================================================
+   8. POSTS GRID / CARDS
+   ========================================================================== */
+.posts-grid { margin-top: 14px; }
+.grid {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  max-width: var(--page);
   margin: 0 auto;
 }
 
-/* Responsive design for mobile */
-@media (max-width: 768px) {
-  .grid {
-    max-width: 100%;
-    padding: 0 16px;
-  }
-  
-  .post-card {
-    flex-direction: column !important;
-    min-height: auto;
-  }
-  
-  .post-media {
-    width: 100% !important;
-    height: 200px !important;
-    flex-shrink: 1 !important;
-  }
-}
-
-/* ==========================================================================
-   POST CARDS
-   ========================================================================== */
-/* Individual post card styling with hover effects */
-.post-card { 
-  background: #ffffff; 
-  border-radius: 14px; 
-  overflow: hidden; 
-  border: 1px solid var(--grey-1); 
-  box-shadow: 0 10px 30px rgba(0,0,0,0.18); 
-  transition: transform .2s ease, box-shadow .2s ease; 
-  display: flex;
-  flex-direction: row;
-  min-height: 200px;
-}
-.post-card:hover { 
-  transform: translateY(-3px); 
-  box-shadow: 0 16px 40px rgba(0,0,0,0.22); 
-}
-
-/* Post card media (images) with fallback gradient */
-.post-media { 
-  display: block; 
-  width: 300px;
-  flex-shrink: 0;
-  background: var(--blue-1); 
+.post-card {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
   overflow: hidden;
-  position: relative;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
 }
-.post-media img { 
-  width: 100%; 
-  height: 100%; 
-  object-fit: cover; 
-  transition: transform 0.3s ease;
-}
-.post-media:hover img {
-  transform: scale(1.05);
-}
-.media-fallback { 
-  width: 100%; 
-  height: 100%; 
-  background: linear-gradient(135deg, var(--blue-1), var(--yellow)); 
+.post-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--border-strong);
 }
 
-/* Post card content area */
-.post-content { 
-  padding: 20px 24px; 
+.post-media {
+  display: block;
+  position: relative;
+  background: var(--bg-subtle);
+  aspect-ratio: 1 / 1;        /* matches the square post thumbnails */
+  align-self: stretch;        /* fill card height if content is taller */
+  overflow: hidden;
+}
+.post-media img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.post-card:hover .post-media img { transform: scale(1.04); }
+.media-fallback {
+  width: 100%; height: 100%;
+  background:
+    radial-gradient(120% 120% at 0% 0%, var(--accent-soft), transparent 60%),
+    var(--bg-subtle);
+}
+
+.post-content {
+  padding: 22px 24px;
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
-  justify-content: space-between;
 }
-.post-title { 
-  margin: 0 0 6px; 
-  font-size: 20px; 
-  color: var(--night-1); 
+.post-card .post-title {
+  margin: 0 0 8px;
+  font-size: 1.3rem;
+  letter-spacing: -0.02em;
 }
-.post-meta { 
-  color: var(--night-1); 
-  font-size: 13px; 
-  margin-bottom: 8px; 
-}
-.post-excerpt { 
-  color: #3a3a3a; 
-  margin: 0 0 12px; 
-  line-height: 1.55; 
-  flex-grow: 1;
-}
+.post-card .post-title a { color: var(--text); }
+.post-card .post-title a:hover { color: var(--accent); }
 
-/* Button wrapper to push button to bottom */
-.post-button-wrapper {
-  margin-top: auto;
-  padding-top: 8px;
+.post-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.01em;
+  color: var(--text-muted);
 }
-/* ==========================================================================
-   READ ARTICLE BUTTON
-   ========================================================================== */
-/* Enhanced "Read Article" button with gradient and hover effects */
-.post-link { 
-  display: inline-block; 
-  color: #ffffff; 
-  background: linear-gradient(135deg, var(--blue-1), var(--night-1)); 
-  font-weight: 600; 
-  padding: 12px 20px; 
-  border-radius: 12px; 
-  box-shadow: 0 6px 20px rgba(53, 92, 125, 0.3); 
-  transition: all 0.3s ease; 
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  font-size: 14px;
-}
-.post-link:hover { 
-  transform: translateY(-2px); 
-  box-shadow: 0 8px 25px rgba(53, 92, 125, 0.4);
-  background: linear-gradient(135deg, var(--night-1), var(--blue-1));
-}
-.post-link:active { 
-  transform: translateY(0px); 
-  box-shadow: 0 4px 15px rgba(53, 92, 125, 0.3);
-}
+.post-meta .dot { color: var(--text-faint); }
+.post-meta .reading-time { color: var(--text-faint); }
 
-/* ==========================================================================
-   INDIVIDUAL POST PAGES
-   ========================================================================== */
-/* Hero image section for individual blog posts */
-.post-hero { 
-  aspect-ratio: 21/9; 
-  background: var(--blue-1); 
-  border-radius: 16px; 
-  overflow: hidden; 
-  border: 1px solid var(--grey-1); 
-  box-shadow: 0 14px 40px rgba(0,0,0,0.25); 
-  margin: 18px 0 22px; 
-}
-.post-hero img { 
-  width: 100%; 
-  height: 100%; 
-  object-fit: cover; 
-}
+.post-card .post-meta { margin-bottom: 10px; }
 
-/* Post header with title and metadata */
-.post-header { 
-  color: #fff; 
-  margin: 6px 0 8px; 
-}
-.post-header .post-title { 
-  color: var(--night-1); 
-  font-size: 38px; 
-  margin-bottom: 6px; 
-}
-.post-header .post-meta { 
-  color: var(--night-1); 
-}
-
-/* Main post content area with white background */
-.post-body { 
-  background: #ffffff; 
-  color: var(--night-1); 
-  border-radius: 16px; 
-  border: 1px solid var(--grey-1); 
-  padding: 22px; 
-  box-shadow: 0 10px 30px rgba(0,0,0,0.18); 
-}
-.post-body p { 
-  line-height: 1.75; 
-}
-.post-body h2, .post-body h3 { 
-  color: var(--night-1); 
-}
-.post-body pre, .post-body code { 
-  background: #0f1430; 
-  color: #eaf0ff; 
-  border-radius: 8px; 
-  padding: 3px 6px; 
-}
-.post-body pre { 
-  padding: 12px; 
-  overflow: auto; 
-}
-
-/* ==========================================================================
-   COLLAPSIBLE CODE BLOCKS
-   ========================================================================== */
-/* Interactive collapsible sections for code examples in posts */
-.post-body details { 
-  margin: 16px 0; 
-  display: block;
-}
-.post-body details summary { 
-  cursor: pointer; 
-  padding: 8px 12px; 
-  background: var(--blue-1); 
-  color: white; 
-  border-radius: 80px; 
-  font-weight: 600;
-  transition: background 0.2s ease;
-  display: inline-block;
-  user-select: none;
-}
-.post-body details summary:hover { 
-  background: var(--night-1); 
-}
-.post-body details[open] summary { 
-  border-radius: 8px 8px 0 0; 
-}
-.post-body details pre { 
-  margin: 0; 
-  border-radius: 0 0 8px 8px; 
+.post-excerpt {
+  color: var(--text-muted);
+  margin: 0 0 16px;
   line-height: 1.6;
-  padding: 16px;
+  font-size: 0.97rem;
 }
 
-/* ==========================================================================
-   POST NAVIGATION
-   ========================================================================== */
-/* Previous/Next post navigation links */
-.post-nav { 
-  display: flex; 
-  justify-content: space-between; 
-  margin: 18px 0 8px; 
+.post-link {
+  align-self: flex-start;
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 0.92rem;
 }
-.post-nav a { 
-  color: #eaf0ff; 
-  background: rgba(255,255,255,0.08); 
-  padding: 8px 12px; 
-  border-radius: 10px; 
-  border: 1px solid rgba(255,255,255,0.12); 
+.post-link::after {
+  content: "→";
+  transition: transform 0.2s ease;
 }
+.post-link:hover { color: var(--accent-strong); }
+.post-card:hover .post-link::after { transform: translateX(3px); }
 
 /* ==========================================================================
-   IMAGE STYLING
+   9. POST PAGE
    ========================================================================== */
-/* Center images in post content */
-.post-body img {
-  display: block;
-  margin: 20px auto;
+.post {
+  max-width: var(--page);
+  margin: 0 auto;
+}
+
+.post-hero {
+  aspect-ratio: 2 / 1;
+  background: var(--bg-subtle);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-md);
+  margin: 8px 0 30px;
+}
+.post-hero img { width: 100%; height: 100%; object-fit: cover; }
+
+.post-header { margin: 0 0 28px; }
+.post-header .post-title {
+  font-size: clamp(1.9rem, 4.6vw, 2.7rem);
+  margin: 12px 0 0;
+  letter-spacing: -0.03em;
+}
+.post-header .post-meta { margin-bottom: 4px; }
+
+/* The reading column. Prose holds a comfortable ~68ch measure (centered);
+   media, code and tables break out to the full post width for impact. */
+.post-body {
+  color: var(--text);
+  font-size: 1.0625rem;
+}
+.post-body > p,
+.post-body > ul,
+.post-body > ol,
+.post-body > h2,
+.post-body > h3,
+.post-body > h4,
+.post-body > blockquote,
+.post-body > .callout,
+.post-body > .story-bar,
+.post-body > details {
+  max-width: var(--measure);
+  margin-left: auto;
+  margin-right: auto;
+}
+/* Image-/video-only paragraphs should NOT be held to the text measure */
+.post-body > p:has(> img),
+.post-body > p:has(> video),
+.post-body > p:has(> a > img) {
   max-width: 100%;
-  height: auto;
-  border-radius: 8px;
-  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
 
-/* Image size utilities */
-.post-body .img-small { max-width: 40%; }
-.post-body .img-medium { max-width: 60%; }
-.post-body .img-large { max-width: 80%; }
-.post-body .img-full { max-width: 100%; }
+.post-body p { margin: 0 0 1.35em; line-height: 1.75; }
 
-/* Thumbnail size utilities */
-.post-media.thumb-small { aspect-ratio: 4/3; }
-.post-media.thumb-medium { aspect-ratio: 16/9; }
-.post-media.thumb-large { aspect-ratio: 21/9; }
-.post-media.thumb-square { aspect-ratio: 1/1; }
+.post-body h2 {
+  font-size: 1.55rem;
+  margin: 2.4em 0 0.7em;
+  padding-top: 0.4em;
+  letter-spacing: -0.02em;
+}
+.post-body h3 {
+  font-size: 1.22rem;
+  margin: 1.9em 0 0.6em;
+}
+.post-body h2 + h3 { margin-top: 1em; }
 
+.post-body a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-color: var(--accent-line);
+  text-underline-offset: 0.18em;
+  text-decoration-thickness: 1.5px;
+  transition: text-decoration-color 0.18s ease;
+}
+.post-body a:hover { text-decoration-color: var(--accent); }
+
+.post-body ul, .post-body ol { padding-left: 1.4em; margin: 0 0 1.35em; }
+.post-body li { margin: 0.4em 0; line-height: 1.7; }
+.post-body li::marker { color: var(--text-faint); }
+
+.post-body strong { font-weight: 700; color: var(--text); }
+
+/* Blockquote (used as emphasis "Here's the world..." pull-quotes) */
+.post-body blockquote {
+  margin: 1.6em 0;
+  padding: 0.4em 0 0.4em 1.3em;
+  border-left: 3px solid var(--accent);
+  color: var(--text);
+  font-size: 1.18rem;
+  font-weight: 500;
+  line-height: 1.5;
+  font-style: normal;
+}
+.post-body blockquote p { margin: 0.3em 0; }
 
 /* ==========================================================================
-   TEXT HIGHLIGHTING & IMPORTANCE
+   10. CODE — inline, blocks, Rouge tokens, collapsible
    ========================================================================== */
-/* Highlighting effects for important text content */
-/* To use the callout, use the following code:
-<div class="callout">
-  Hello World
-</div>
-*/
+/* Inline code chip */
+.post-body code {
+  font-family: var(--font-mono);
+  font-size: 0.86em;
+  background: var(--bg-subtle);
+  color: var(--text);
+  padding: 0.14em 0.4em;
+  border-radius: 5px;
+  border: 1px solid var(--border);
+  word-break: break-word;
+}
+
+/* Code blocks (fenced ``` and {% highlight %} produce .highlight wrappers) */
+.post-body pre,
+.post-body .highlight,
+.post-body figure.highlight {
+  background: var(--code-bg);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-strong);
+  margin: 1.5em 0;
+  overflow: hidden;
+}
+.post-body figure.highlight,
+.post-body .highlight { box-shadow: var(--shadow-md); }
+
+.post-body pre {
+  margin: 0;
+  padding: 16px 18px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  font-family: var(--font-mono);
+  font-size: 0.86rem;
+  line-height: 1.65;
+  color: var(--code-text);
+  tab-size: 4;
+}
+.post-body .highlight pre,
+.post-body figure.highlight pre { background: transparent; border: none; }
+
+/* Code inside a block: strip the inline-chip styling */
+.post-body pre code,
+.post-body .highlight code {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: inherit;
+  color: inherit;
+  border-radius: 0;
+  word-break: normal;
+}
+
+/* Rouge highlight wrapper internals */
+.post-body .highlight table td { padding: 0; border: none; }
+.post-body .highlight .lineno { color: var(--code-comment); user-select: none; }
+
+/* --- Rouge token colors --- */
+.post-body .highlight .c,  .post-body .highlight .c1,
+.post-body .highlight .cm, .post-body .highlight .cs,
+.post-body .highlight .cd { color: var(--code-comment); font-style: italic; }
+.post-body .highlight .k,  .post-body .highlight .kd,
+.post-body .highlight .kn, .post-body .highlight .kp,
+.post-body .highlight .kr, .post-body .highlight .kc,
+.post-body .highlight .kt { color: var(--code-keyword); }
+.post-body .highlight .o,  .post-body .highlight .ow { color: var(--code-keyword); }
+.post-body .highlight .s,  .post-body .highlight .s1,
+.post-body .highlight .s2, .post-body .highlight .sb,
+.post-body .highlight .sc, .post-body .highlight .sd,
+.post-body .highlight .se, .post-body .highlight .sh,
+.post-body .highlight .si, .post-body .highlight .sx,
+.post-body .highlight .sr, .post-body .highlight .ss { color: var(--code-string); }
+.post-body .highlight .m,  .post-body .highlight .mi,
+.post-body .highlight .mf, .post-body .highlight .mh,
+.post-body .highlight .mo, .post-body .highlight .il { color: var(--code-number); }
+.post-body .highlight .nf, .post-body .highlight .fm { color: var(--code-func); }
+.post-body .highlight .nb, .post-body .highlight .bp { color: var(--code-builtin); }
+.post-body .highlight .nc, .post-body .highlight .nn,
+.post-body .highlight .ne, .post-body .highlight .nl { color: var(--code-func); }
+.post-body .highlight .nd, .post-body .highlight .no,
+.post-body .highlight .no { color: var(--code-builtin); }
+.post-body .highlight .nv, .post-body .highlight .vc,
+.post-body .highlight .vg, .post-body .highlight .vi { color: var(--code-text); }
+.post-body .highlight .p,  .post-body .highlight .pi { color: var(--code-punct); }
+.post-body .highlight .gd { color: #f08a8a; }
+.post-body .highlight .gi { color: var(--code-string); }
+.post-body .highlight .err { color: #ff7b72; }
+
+/* Collapsible "Show code" */
+.post-body details {
+  margin: 1.5em 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface-2);
+  overflow: hidden;
+}
+.post-body details summary {
+  cursor: pointer;
+  padding: 11px 16px;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text);
+  list-style: none;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  transition: background 0.18s ease;
+}
+.post-body details summary:hover { background: var(--bg-subtle); }
+.post-body details summary::-webkit-details-marker { display: none; }
+.post-body details summary::before {
+  content: "›";
+  display: inline-block;
+  font-size: 1.1rem;
+  line-height: 1;
+  color: var(--accent);
+  transition: transform 0.2s ease;
+}
+.post-body details[open] summary::before { transform: rotate(90deg); }
+.post-body details summary strong { font-weight: 600; }
+.post-body details[open] summary { border-bottom: 1px solid var(--border); }
+.post-body details > .highlight,
+.post-body details > figure.highlight,
+.post-body details > pre {
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+.post-body details > p { padding: 0 16px; }
+
+/* ==========================================================================
+   11. TABLES (responsive — scroll on narrow screens)
+   ========================================================================== */
+.post-body table {
+  display: block;
+  width: max-content;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-collapse: collapse;
+  font-size: 0.94rem;
+  margin: 1.6em 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+}
+.post-body thead { background: var(--bg-subtle); }
+.post-body th, .post-body td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+  vertical-align: top;
+}
+.post-body th { font-weight: 600; color: var(--text); white-space: nowrap; }
+.post-body tbody tr:last-child td { border-bottom: none; }
+.post-body tbody tr:nth-child(even) { background: var(--surface-2); }
+
+/* ==========================================================================
+   12. MATH (MathJax) — prevent wide-equation overflow
+   ========================================================================== */
+.post-body mjx-container {
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 2px 0;
+}
+.post-body mjx-container[display="true"] {
+  margin: 1.3em 0;
+  padding-bottom: 6px;
+}
+mjx-container { color: var(--text); }
+
+/* ==========================================================================
+   13. IMAGES, VIDEOS & SIZE UTILITIES
+   ========================================================================== */
+.post-body img,
+.post-body video {
+  margin: 1.8em auto;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border);
+  background: var(--bg-subtle);
+}
+.post-body p > img,
+.post-body p > video { margin-top: 0.4em; margin-bottom: 0.4em; }
+
+/* Width utilities (apply to both img and video). Centered. */
+.post-body .img-small  { width: 40%;  }
+.post-body .img-medium { width: 60%;  }
+.post-body .img-large  { width: 80%;  }
+.post-body .img-full   { width: 100%; }
+.post-body .img-small,
+.post-body .img-medium,
+.post-body .img-large,
+.post-body .img-full { display: block; margin-left: auto; margin-right: auto; height: auto; }
+
+/* ==========================================================================
+   14. CALLOUT & STORY-BAR (used inside post markdown)
+   ========================================================================== */
 .post-body .callout {
-  background: rgba(255, 200, 87, 0.1);
-  border: 2px solid var(--yellow);
-  border-radius: 12px;
-  padding: 16px;
-  margin: 16px 0;
-  position: relative;
+  background: rgba(255, 200, 87, 0.14);
+  border: 1px solid rgba(255, 200, 87, 0.55);
+  border-left: 4px solid var(--yellow);
+  border-radius: var(--radius-sm);
+  padding: 16px 18px;
+  margin: 1.7em 0;
 }
+.post-body .callout p { margin: 0; color: var(--text); }
+.post-body .callout p + p { margin-top: 0.7em; }
+.post-body .callout strong { color: var(--text); }
 
-.post-body .callout p {
-  margin: 0;
-  color: var(--night-1);
-  font-weight: 500;
-}
-
-/* Vertical bar highlight effect */
 .post-body .story-bar {
-  background: var(--grey-1);
-  border-left: 8px solid var(--blue-1);
-  padding: 12px 16px;
-  margin: 12px 0;
-  border-radius: 0 12px 12px 0;
-  position: relative;
+  background: var(--bg-subtle);
+  border-left: 4px solid var(--accent);
+  padding: 14px 18px;
+  margin: 1.6em 0;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
 }
+.post-body .story-bar p { margin: 0; color: var(--text-muted); }
+.post-body .story-bar a { color: var(--accent); }
 
-.post-body .story-bar p {
-  margin: 0;
-  color: var(--night-1);
-  font-weight: 500;
+/* ==========================================================================
+   15. POST NAVIGATION (prev / next)
+   ========================================================================== */
+.post-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin: 48px 0 8px;
+  border-top: 1px solid var(--border);
+  padding-top: 28px;
+}
+.post-nav a {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px 18px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: var(--shadow-sm);
+}
+.post-nav a:hover { transform: translateY(-2px); border-color: var(--border-strong); box-shadow: var(--shadow-md); }
+.post-nav a.next { text-align: right; }
+.post-nav a .nav-dir {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.post-nav a .nav-title { font-weight: 600; line-height: 1.35; font-size: 0.98rem; }
+
+/* ==========================================================================
+   16. LINK-PROMINENT (inline emphasized link from _includes)
+   ========================================================================== */
+.link-prominent {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: var(--accent-line);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.18em;
+  transition: text-decoration-color 0.18s ease;
+}
+.link-prominent:hover { color: var(--accent-strong); text-decoration-color: var(--accent); }
+
+/* ==========================================================================
+   17. ABOUT PAGE
+   ========================================================================== */
+.about {
+  max-width: var(--page);
+  margin: 0 auto;
+}
+.about-header { margin: 8px 0 6px; }
+.about-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 12px;
+}
+.about-title { font-size: clamp(1.9rem, 4.6vw, 2.6rem); margin: 0; letter-spacing: -0.03em; }
+.about-body {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px 30px;
+  box-shadow: var(--shadow-sm);
+  margin-top: 22px;
+  line-height: 1.75;
+}
+.about-body > p { max-width: var(--measure); color: var(--text); }
+.about-body h2 { font-size: 1.3rem; margin: 1.6em 0 0.8em; }
+
+.social-links { display: flex; gap: 12px; flex-wrap: wrap; margin: 20px 0 4px; }
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 11px 18px;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 0.92rem;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  color: var(--text);
+  transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease, color 0.18s ease;
+}
+.social-link svg { width: 17px; height: 17px; }
+.social-link:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent-line);
+  color: var(--accent);
+  box-shadow: var(--shadow-sm);
 }
 
 /* ==========================================================================
-   UTILITY CLASSES
+   18. RESPONSIVE
    ========================================================================== */
-/* General utility classes for spacing and layout */
-.site-main { 
-  padding: 18px 0 40px; 
+@media (max-width: 680px) {
+  body { font-size: 1rem; }
+
+  .post-card {
+    grid-template-columns: 1fr;
+  }
+  .post-media { aspect-ratio: 4 / 3; }
+
+  .post-hero { aspect-ratio: 16 / 10; border-radius: var(--radius); margin-bottom: 22px; }
+
+  .post-body { font-size: 1rem; }
+  .post-body > * { max-width: 100%; }
+
+  .about-body { padding: 22px 20px; }
+
+  .post-nav { grid-template-columns: 1fr; }
+  .post-nav a.next { text-align: left; }
+
+  .nav a { padding: 7px 9px; font-size: 0.9rem; }
 }
 
+/* ==========================================================================
+   19. MOTION PREFERENCES
+   ========================================================================== */
+/* Subtle entrance animation, only when motion is allowed */
+@media (prefers-reduced-motion: no-preference) {
+  .fade-in {
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fade-in-up 0.55s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+  }
+  .grid .post-card:nth-child(2) { animation-delay: 0.05s; }
+  .grid .post-card:nth-child(3) { animation-delay: 0.1s; }
+  .grid .post-card:nth-child(4) { animation-delay: 0.15s; }
+  .grid .post-card:nth-child(5) { animation-delay: 0.2s; }
+  .grid .post-card:nth-child(6) { animation-delay: 0.25s; }
+}
+@keyframes fade-in-up {
+  to { opacity: 1; transform: none; }
+}
 
-
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .fade-in { opacity: 1; transform: none; }
+}

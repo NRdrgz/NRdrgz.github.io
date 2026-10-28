@@ -1,19 +1,18 @@
 ---
 layout: default
 ---
-<section class="home-hero">
+<section class="home-hero fade-in">
   <h1 class="home-title">{{ site.title | default: "Welcome" }}</h1>
-  {% if site.description %}
-  <p class="home-subtitle">{{ site.description }}</p>
-  {% endif %}
 </section>
 
 <section class="posts-grid">
   <div class="grid">
     {% assign posts_list = paginator.posts | default: site.posts %}
     {% for post in posts_list %}
-      <article class="post-card">
-        <a class="post-media" href="{{ post.url | relative_url }}" aria-label="{{ post.title }}">
+      {% assign words = post.content | number_of_words %}
+      {% assign read_min = words | divided_by: 200 | at_least: 1 %}
+      <article class="post-card fade-in">
+        <a class="post-media" href="{{ post.url | relative_url }}" aria-label="{{ post.title }}" tabindex="-1">
           {% if post.thumbnail %}
             <img src="{{ post.thumbnail | relative_url }}" alt="{{ post.title }} cover" loading="lazy" />
           {% elsif post.image %}
@@ -23,14 +22,16 @@ layout: default
           {% endif %}
         </a>
         <div class="post-content">
+          <div class="post-meta">
+            <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>
+            <span class="dot" aria-hidden="true">·</span>
+            <span class="reading-time">{{ read_min }} min read</span>
+          </div>
           <h2 class="post-title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
-          <div class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</div>
-          <p class="post-excerpt">{{ post.excerpt | strip_html | truncate: 140 }}</p>
+          <p class="post-excerpt">{{ post.excerpt | strip_html | truncate: 150 }}</p>
           <a class="post-link" href="{{ post.url | relative_url }}">Read article</a>
         </div>
       </article>
     {% endfor %}
   </div>
 </section>
-
-

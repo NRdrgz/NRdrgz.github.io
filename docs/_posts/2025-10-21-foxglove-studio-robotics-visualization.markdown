@@ -2,8 +2,8 @@
 layout: post
 title: "(Part 2) ... and used Foxglove through the journey"
 date: 2025-10-22
-thumbnail: /assets/images/posts/thumbnails/foxglove_thumbnail.jpg
-hero_image: /assets/images/posts/hero-images/foxglove_hero.jpg
+thumbnail: /assets/images/posts/foxglove/thumbnail.jpg
+hero_image: /assets/images/posts/foxglove/hero.jpg
 excerpt: "How Foxglove Studio transformed my robotics development workflow and why it's become an essential tool for visualizing data and debugging"
 ---
 
@@ -56,13 +56,13 @@ For my Just1 robot project, Foxglove became the central hub for development and 
 - **Path Visualization**: See the planned path and current trajectory
 - **Obstacle Detection**: Monitor lidar data for obstacle avoidance
 
-![Navigation Control](/assets/images/posts/content/foxglove_3d.jpg){: .img-large}
+![Navigation Control](/assets/images/posts/foxglove/3d.jpg){: .img-large}
 
 ### 3. Debugging and Analysis
 - **Topic Monitor**: Track all ROS2 topics and their message rates
 - **Log Analysis**: Review recorded data to understand what went wrong
 
-![Debugging](/assets/images/posts/content/foxglove_debug.jpg){: .img-large}
+![Debugging](/assets/images/posts/foxglove/debug.jpg){: .img-large}
 
 
 ## How I installed it
@@ -75,12 +75,12 @@ Want to add a Camera Panel? Just send over your `/camera/video` topic.
 Installing the UI on your computer is even easier. Just {% include link_prominent.html url="https://foxglove.dev/download" text="download Foxglove"%} and follow the steps {% include link_prominent.html url="https://docs.foxglove.dev/docs/getting-started/frameworks/ros2" text="here again"%}.  
 
 
-![Foxglove Connection](/assets/images/posts/content/foxglove_connection.jpg){: .img-medium}
+![Foxglove Connection](/assets/images/posts/foxglove/connection.jpg){: .img-medium}
 
 ## See Foxglove in Action with My Just1 Demo
 
 <a href="https://www.youtube.com/watch?v=m_tZ3eg-KsA" target="_blank">
-  <img src="/assets/images/posts/content/just1_demo.png" 
+  <img src="/assets/images/posts/just1/demo.png" 
        alt="Watch the demo" 
        style="width:1000px;"/>
 </a>
@@ -91,7 +91,7 @@ Foxglove Studio transformed my robotics development from a frustrating, guesswor
 
 The features I explored through the Just1 project only seem like the tip of the iceberg of what Foxglove can do, and I'm looking forward to experimenting more with it in future projects.
 
-![FOxglove iceberg](/assets/images/posts/content/foxglove_iceberg.png){: .img-medium}
+![FOxglove iceberg](/assets/images/posts/foxglove/iceberg.png){: .img-medium}
 
 <div class="callout">
 Foxglove is really an awesome tool, and if you are looking to integrate it into your small hobbyist project or your huge company, check out their {% include link_prominent.html url="https://docs.foxglove.dev/docs" text="official documentation" %} or {% include link_prominent.html url="https://foxglove.dev/blog?topic=all" text="blog"%}.

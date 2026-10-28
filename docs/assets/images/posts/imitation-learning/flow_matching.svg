@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 445" role="img" aria-label="Flow matching turns random noise into action chunks, keeping both valid ways of doing the task">
+<title>Flow matching turns random noise into action chunks, keeping both valid ways of doing the task</title>
+<defs>
+  <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 z" fill="#5b6470"/>
+  </marker>
+  <style>
+    text { font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; font-size: 19px; fill: #2E2E2E; }
+    .b { font-weight: 600; }
+    .m { fill: #5b6470; font-size: 16px; }
+    .s { font-size: 15px; fill: #5b6470; }
+    .arrow { stroke: #5b6470; stroke-width: 2; fill: none; marker-end: url(#arr); }
+  </style>
+</defs>
+<rect width="960" height="445" fill="#ffffff"/>
+
+<text x="480" y="36" text-anchor="middle" class="m">Both ways of doing the task survive. Nothing gets averaged.</text>
+<path d="M65.6,153.6 C325.6,153.6 532.1,82.0 792.1,82.0" stroke="#355C7D" stroke-opacity="0.28" stroke-width="2" fill="none"/>
+<path d="M92.7,175.6 C352.7,175.6 510.6,90.1 770.6,90.1" stroke="#355C7D" stroke-opacity="0.28" stroke-width="2" fill="none"/>
+<path d="M162.2,180.3 C422.2,180.3 537.9,98.9 797.9,98.9" stroke="#355C7D" stroke-opacity="0.28" stroke-width="2" fill="none"/>
+<path d="M77.1,192.1 C337.1,192.1 521.8,107.2 781.8,107.2" stroke="#355C7D" stroke-opacity="0.28" stroke-width="2" fill="none"/>
+<path d="M115.1,199.2 C375.1,199.2 527.9,111.9 787.9,111.9" stroke="#355C7D" stroke-opacity="0.28" stroke-width="2" fill="none"/>
+<path d="M74.0,207.2 C334.0,207.2 543.0,122.1 803.0,122.1" stroke="#355C7D" stroke-opacity="0.28" stroke-width="2" fill="none"/>
+<path d="M150.3,217.0 C410.3,217.0 518.7,128.1 778.7,128.1" stroke="#355C7D" stroke-opacity="0.28" stroke-width="2" fill="none"/>
+<path d="M155.9,232.2 C415.9,232.2 531.1,137.5 791.1,137.5" stroke="#355C7D" stroke-opacity="0.28" stroke-width="2" fill="none"/>
+<path d="M190.8,234.6 C450.8,234.6 540.1,303.8 800.1,303.8" stroke="#355C7D" stroke-opacity="0.28" stroke-width="2" fill="none"/>
+<path d="M193.2,244.1 C453.2,244.1 551.1,309.4 811.1,309.4" stroke="#355C7D" stroke-opacity="0.28" stroke-width="2" fill="none"/>
+<path d="M150.1,245.7 C410.1,245.7 526.4,321.6 786.4,321.6" stroke="#355C7D" stroke-opacity="0.28" stroke-width="2" fill="none"/>
+<path d="M162.0,251.5 C422.0,251.5 514.7,326.4 774.7,326.4" stroke="#355C7D" stroke-opacity="0.28" stroke-width="2" fill="none"/>
+<path d="M113.5,253.0 C373.5,253.0 509.7,334.8 769.7,334.8" stroke="#355C7D" stroke-opacity="0.28" stroke-width="2" fill="none"/>
+<path d="M53.1,259.5 C313.1,259.5 541.6,341.1 801.6,341.1" stroke="#355C7D" stroke-opacity="0.28" stroke-width="2" fill="none"/>
+<path d="M160.5,285.7 C420.5,285.7 546.5,346.0 806.5,346.0" stroke="#355C7D" stroke-opacity="0.28" stroke-width="2" fill="none"/>
+<path d="M99.2,300.1 C359.2,300.1 538.6,355.3 798.6,355.3" stroke="#355C7D" stroke-opacity="0.28" stroke-width="2" fill="none"/>
+<circle cx="65.6" cy="153.6" r="6" fill="#5b6470" fill-opacity="0.65"/>
+<circle cx="92.7" cy="175.6" r="6" fill="#5b6470" fill-opacity="0.65"/>
+<circle cx="162.2" cy="180.3" r="6" fill="#5b6470" fill-opacity="0.65"/>
+<circle cx="77.1" cy="192.1" r="6" fill="#5b6470" fill-opacity="0.65"/>
+<circle cx="115.1" cy="199.2" r="6" fill="#5b6470" fill-opacity="0.65"/>
+<circle cx="74.0" cy="207.2" r="6" fill="#5b6470" fill-opacity="0.65"/>
+<circle cx="150.3" cy="217.0" r="6" fill="#5b6470" fill-opacity="0.65"/>
+<circle cx="155.9" cy="232.2" r="6" fill="#5b6470" fill-opacity="0.65"/>
+<circle cx="190.8" cy="234.6" r="6" fill="#5b6470" fill-opacity="0.65"/>
+<circle cx="193.2" cy="244.1" r="6" fill="#5b6470" fill-opacity="0.65"/>
+<circle cx="150.1" cy="245.7" r="6" fill="#5b6470" fill-opacity="0.65"/>
+<circle cx="162.0" cy="251.5" r="6" fill="#5b6470" fill-opacity="0.65"/>
+<circle cx="113.5" cy="253.0" r="6" fill="#5b6470" fill-opacity="0.65"/>
+<circle cx="53.1" cy="259.5" r="6" fill="#5b6470" fill-opacity="0.65"/>
+<circle cx="160.5" cy="285.7" r="6" fill="#5b6470" fill-opacity="0.65"/>
+<circle cx="99.2" cy="300.1" r="6" fill="#5b6470" fill-opacity="0.65"/>
+<circle cx="428.9" cy="117.8" r="5" fill="#355C7D" fill-opacity="0.45"/>
+<circle cx="431.7" cy="132.9" r="5" fill="#355C7D" fill-opacity="0.45"/>
+<circle cx="480.1" cy="139.6" r="5" fill="#355C7D" fill-opacity="0.45"/>
+<circle cx="429.4" cy="149.7" r="5" fill="#355C7D" fill-opacity="0.45"/>
+<circle cx="451.5" cy="155.6" r="5" fill="#355C7D" fill-opacity="0.45"/>
+<circle cx="438.5" cy="164.6" r="5" fill="#355C7D" fill-opacity="0.45"/>
+<circle cx="464.5" cy="172.5" r="5" fill="#355C7D" fill-opacity="0.45"/>
+<circle cx="473.5" cy="184.8" r="5" fill="#355C7D" fill-opacity="0.45"/>
+<circle cx="495.5" cy="269.2" r="5" fill="#355C7D" fill-opacity="0.45"/>
+<circle cx="502.2" cy="276.8" r="5" fill="#355C7D" fill-opacity="0.45"/>
+<circle cx="468.3" cy="283.6" r="5" fill="#355C7D" fill-opacity="0.45"/>
+<circle cx="468.3" cy="289.0" r="5" fill="#355C7D" fill-opacity="0.45"/>
+<circle cx="441.6" cy="293.9" r="5" fill="#355C7D" fill-opacity="0.45"/>
+<circle cx="427.4" cy="300.3" r="5" fill="#355C7D" fill-opacity="0.45"/>
+<circle cx="483.5" cy="315.9" r="5" fill="#355C7D" fill-opacity="0.45"/>
+<circle cx="448.9" cy="327.7" r="5" fill="#355C7D" fill-opacity="0.45"/>
+<circle cx="792.1" cy="82.0" r="6.5" fill="#355C7D"/>
+<circle cx="770.6" cy="90.1" r="6.5" fill="#355C7D"/>
+<circle cx="797.9" cy="98.9" r="6.5" fill="#355C7D"/>
+<circle cx="781.8" cy="107.2" r="6.5" fill="#355C7D"/>
+<circle cx="787.9" cy="111.9" r="6.5" fill="#355C7D"/>
+<circle cx="803.0" cy="122.1" r="6.5" fill="#355C7D"/>
+<circle cx="778.7" cy="128.1" r="6.5" fill="#355C7D"/>
+<circle cx="791.1" cy="137.5" r="6.5" fill="#355C7D"/>
+<circle cx="800.1" cy="303.8" r="6.5" fill="#355C7D"/>
+<circle cx="811.1" cy="309.4" r="6.5" fill="#355C7D"/>
+<circle cx="786.4" cy="321.6" r="6.5" fill="#355C7D"/>
+<circle cx="774.7" cy="326.4" r="6.5" fill="#355C7D"/>
+<circle cx="769.7" cy="334.8" r="6.5" fill="#355C7D"/>
+<circle cx="801.6" cy="341.1" r="6.5" fill="#355C7D"/>
+<circle cx="806.5" cy="346.0" r="6.5" fill="#355C7D"/>
+<circle cx="798.6" cy="355.3" r="6.5" fill="#355C7D"/>
+<text x="835" y="104" class="b">way 1</text>
+<text x="835" y="127" class="m">from above</text>
+<text x="835" y="324" class="b">way 2</text>
+<text x="835" y="347" class="m">from the side</text>
+<text x="130" y="400" text-anchor="middle" class="b">Random noise</text>
+<text x="460" y="400" text-anchor="middle" class="b">Follow the learned flow</text>
+<text x="790" y="400" text-anchor="middle" class="b">Valid action chunks</text>
+<text x="130" y="425" text-anchor="middle" class="s">step 0</text>
+<text x="460" y="425" text-anchor="middle" class="s">a few small steps</text>
+<text x="790" y="425" text-anchor="middle" class="s">final step</text>
+
+</svg>

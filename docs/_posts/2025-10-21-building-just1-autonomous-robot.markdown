@@ -2,8 +2,8 @@
 layout: post
 title: "(Part 1) Just1: How I built a small autonomous robot ..."
 date: 2025-10-21
-thumbnail: /assets/images/posts/thumbnails/just1_thumbnail.jpg
-hero_image: /assets/images/posts/hero-images/just1_hero.jpg
+thumbnail: /assets/images/posts/just1/thumbnail.jpg
+hero_image: /assets/images/posts/just1/hero.jpg
 excerpt: "How I built Just1, a $250 Mecanum wheel robot that can navigate and avoid obstacles autonomously."
 ---
 
@@ -16,7 +16,7 @@ Picture this: You're sitting in your room, scrolling through robotics videos on 
 It all started when I was working for an autonomous driving company in San Francisco. I was surrounded by tremendously smart people working on a very complex system. I already knew about robotics, mainly from the software and data side, but I wanted to better understand several other aspects: middleware, perception, planning, control, and more. Convinced that hands-on projects are the best way to learn and make progress, I started working on Just1. I wanted to build a small, affordable robot that could navigate manually or autonomously and avoid obstacles.
 </div>
 
-![Just1 Cartoon](/assets/images/posts/content/just1_cartoon1.png){: .img-medium}
+![Just1 Cartoon](/assets/images/posts/just1/cartoon1.png){: .img-medium}
 
 ## The Hardware Challenge
 
@@ -60,7 +60,7 @@ Every wiring connection, every software configuration, every troubleshooting ste
 Simulation is great, but there's no substitute for real-world testing. Coming from the software world into hardware, you have to expect the unexpected. Your robot can fail or behave strangely simply because it's out of battery. Light and shadows can play tricks on your sensor inputs. 
 
 <a href="https://www.youtube.com/watch?v=m_tZ3eg-KsA" target="_blank">
-  <img src="/assets/images/posts/content/just1_demo.png" 
+  <img src="/assets/images/posts/just1/demo.png" 
        alt="Watch the demo" 
        style="width:1000px;"/>
 </a>

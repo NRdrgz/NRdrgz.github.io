@@ -2,8 +2,8 @@
 layout: post
 title: "(Part 1) How to train your <del>dragon</del> inverted double pendulum"
 date: 2025-11-06
-thumbnail: /assets/images/posts/thumbnails/double_pendulum_thumbnail.png
-hero_image: /assets/images/posts/hero-images/double_pendulum_hero.png
+thumbnail: /assets/images/posts/double-pendulum/thumbnail.png
+hero_image: /assets/images/posts/double-pendulum/hero.jpg
 excerpt: "Learn how to use Isaac Lab to train an inverted double pendulum to stay upright"
 ---
 
@@ -22,7 +22,7 @@ Nvidia Isaac Sim is a well known product for training robots in simulation, and 
 Okay, so Nvidia Isaac Sim and Isaac Lab are both part of this ecosystem called "Omniverse", which honestly can be pretty confusing at first.
 
 
-![Isaac Env](/assets/images/posts/content/double_pendulum_isaac_env.jpg){: .img-large}
+![Isaac Env](/assets/images/posts/double-pendulum/isaac_env.jpg){: .img-large}
 *Source: [Isaac Lab Documentation](https://isaac-sim.github.io/IsaacLab/main/source/setup/ecosystem.html)*
 
 Think of Omniverse as the "operating system" for 3D simulation. Isaac Sim sits on top of that and focuses on robotics simulation. It works with ROS, URDF, and all those other robotics standards. Then Isaac Lab sits on top of Isaac Sim and lets you do reinforcement learning with your robots.
@@ -49,7 +49,7 @@ The double pendulum consists of:
 - A second arm attached to the first arm
 - A small sign attached to the second arm
 
-![Onshape](/assets/images/posts/content/double_pendulum_onshape.png){: .img-large}
+![Onshape](/assets/images/posts/double-pendulum/onshape.png){: .img-large}
 
 The tricky part? The agent can only control the horizontal force on the cart. It has to figure out how to keep both pendulum arms standing upright.
 
@@ -59,7 +59,9 @@ After importing the URDF into Isaac Sim, I made sure everything worked. I spent 
 
 I tried to balance the pendulum manually using the cart controls. Let me tell you, it's incredibly hard! The double pendulum is a chaotic system, and even small errors compound quickly. But we live in 2025 now, and we have AI to do the tedious work for us, even balance our pendulums.
 
-![Manual](/assets/images/posts/content/double_pendulum_manual_trial.gif){: .img-large}
+<video class="img-large" autoplay loop muted playsinline>
+  <source src="/assets/images/posts/double-pendulum/manual_trial.mp4" type="video/mp4">
+</video>
 
 ## It's training time
 
@@ -77,7 +79,7 @@ For our inverted double pendulum, we want both arms to stay straight up. Here's 
 
 Each reward has a weight that says how important it is. The agent gets these rewards every step of the simulation. The neural network figures out how to balance all these competing goals by trying different things across thousands of parallel simulations.
 
-![Rewards](/assets/images/posts/content/double_pendulum_rewards.png){: .img-large}
+![Rewards](/assets/images/posts/double-pendulum/rewards.png){: .img-large}
 
 With this reward setup, we're ready to train! I used the PPO (Proximal Policy Optimization) algorithm with the skrl library, which works really well for this kind of continuous control task.
 
@@ -87,7 +89,9 @@ There are a few ways to make this easier. One common trick is curriculum learnin
 
 Here is a gif showing our 4,096 instances learning how to balance themselves in parallel.
 
-![Training](/assets/images/posts/content/double_pendulum_training.gif){: .img-large}
+<video class="img-large" autoplay loop muted playsinline>
+  <source src="/assets/images/posts/double-pendulum/training.mp4" type="video/mp4">
+</video>
 
 ## Under the hood
 
@@ -99,7 +103,9 @@ For now, just know that the agent tries different things, figures out what works
 
 After just 20 minutes of training (on my 4080 Super), we have a policy that "learned" how to swing up the arms and keep them balanced. Check out this gif where I push the robot around to mess it up, and it recovers back to standing upright.
 
-![Trained](/assets/images/posts/content/double_pendulum_trained.gif){: .img-large}
+<video class="img-large" autoplay loop muted playsinline>
+  <source src="/assets/images/posts/double-pendulum/trained.mp4" type="video/mp4">
+</video>
 
 <div class="callout">
 This shows how powerful reinforcement learning can be. You could use a traditional PID controller to balance the pendulum, but the RL model also figured out how to swing it up from rest. And it did all of this without any labeled training data. The agent learned purely through trial and error in simulation.
@@ -111,7 +117,7 @@ So now we have a trained neural network! It takes in the positions and speeds of
 
 The neural network itself is pretty simple. It's just a feedforward network. You give it the current state, it goes through a few hidden layers, and out comes the force. The "magic" is all in the weights, which were learned through millions of trials in simulation.
 
-![NN](/assets/images/posts/content/double_pendulum_neural_net.png){: .img-medium}
+![NN](/assets/images/posts/double-pendulum/neural_net.png){: .img-medium}
 *Note: All neurons in each layer are interconnected to neurons in adjacent layers.*
 
 The next big step would be to take this neural network and put it on a real robot with real motors. This is called "sim to real" transfer, and that's where things get really interesting. Having realistic physics in your simulation becomes super important here. You need to make sure your joint stiffness, controller force, and frequency are actually possible in the real world.

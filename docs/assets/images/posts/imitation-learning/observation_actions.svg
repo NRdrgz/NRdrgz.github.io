@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 410" role="img" aria-label="Behavior cloning: the policy maps observations (camera images, joint angles, joint currents) to actions (target joint angles)">
+<title>Behavior cloning: the policy maps observations (camera images, joint angles, joint currents) to actions (target joint angles)</title>
+<defs>
+  <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 z" fill="#5b6470"/>
+  </marker>
+  <style>
+    text { font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; font-size: 19px; fill: #2E2E2E; }
+    .b { font-weight: 600; }
+    .m { fill: #5b6470; font-size: 16px; }
+    .s { font-size: 15px; fill: #5b6470; }
+    .arrow { stroke: #5b6470; stroke-width: 2; fill: none; marker-end: url(#arr); }
+  </style>
+</defs>
+<rect width="900" height="410" fill="#ffffff"/>
+
+<rect x="20" y="20" width="570" height="370" rx="14" fill="#f6f8fa" stroke="#d4d9df" stroke-width="2"/>
+<text x="305" y="62" text-anchor="middle" class="b">Observations (t)</text>
+<text x="305" y="86" text-anchor="middle" class="s">what the robot sees and feels</text>
+<rect x="50" y="120" width="220" height="160" rx="10" fill="#ffffff" stroke="#d4d9df" stroke-width="2"/>
+<path d="M75,255 L135,185 L170,225 L195,200 L245,255 z" fill="#355C7D" fill-opacity="0.18"/>
+<circle cx="220" cy="160" r="14" fill="#FFC857"/>
+<text x="160" y="332" text-anchor="middle" class="m">Camera(s)</text>
+<rect x="320" y="112" width="48" height="26" rx="5" fill="#ffffff" stroke="#d4d9df" stroke-width="2"/>
+<rect x="320" y="144" width="48" height="26" rx="5" fill="#ffffff" stroke="#d4d9df" stroke-width="2"/>
+<rect x="320" y="176" width="48" height="26" rx="5" fill="#ffffff" stroke="#d4d9df" stroke-width="2"/>
+<rect x="320" y="208" width="48" height="26" rx="5" fill="#ffffff" stroke="#d4d9df" stroke-width="2"/>
+<rect x="320" y="240" width="48" height="26" rx="5" fill="#ffffff" stroke="#d4d9df" stroke-width="2"/>
+<rect x="320" y="272" width="48" height="26" rx="5" fill="#ffffff" stroke="#d4d9df" stroke-width="2"/>
+<text x="344" y="332" text-anchor="middle" class="m">Joint</text>
+<text x="344" y="354" text-anchor="middle" class="m">angles</text>
+<rect x="420" y="112" width="48" height="26" rx="5" fill="#ffffff" stroke="#d4d9df" stroke-width="2"/>
+<rect x="420" y="144" width="48" height="26" rx="5" fill="#ffffff" stroke="#d4d9df" stroke-width="2"/>
+<rect x="420" y="176" width="48" height="26" rx="5" fill="#ffffff" stroke="#d4d9df" stroke-width="2"/>
+<rect x="420" y="208" width="48" height="26" rx="5" fill="#ffffff" stroke="#d4d9df" stroke-width="2"/>
+<rect x="420" y="240" width="48" height="26" rx="5" fill="#ffffff" stroke="#d4d9df" stroke-width="2"/>
+<rect x="420" y="272" width="48" height="26" rx="5" fill="#ffffff" stroke="#d4d9df" stroke-width="2"/>
+<text x="444" y="332" text-anchor="middle" class="m">Joint</text>
+<text x="444" y="354" text-anchor="middle" class="m">currents</text>
+<text x="535" y="206" text-anchor="middle" class="m">etc.</text>
+<line class="arrow" x1="596" y1="205" x2="684" y2="205"/>
+<text x="640" y="190" text-anchor="middle" class="s">policy</text>
+<rect x="690" y="20" width="190" height="370" rx="14" fill="rgba(53,92,125,0.10)" stroke="#355C7D" stroke-width="2"/>
+<text x="785" y="62" text-anchor="middle" class="b">Actions (t)</text>
+<text x="785" y="86" text-anchor="middle" class="s">what I did</text>
+<rect x="761" y="112" width="48" height="26" rx="5" fill="#ffffff" stroke="#355C7D" stroke-width="2"/>
+<rect x="761" y="144" width="48" height="26" rx="5" fill="#ffffff" stroke="#355C7D" stroke-width="2"/>
+<rect x="761" y="176" width="48" height="26" rx="5" fill="#ffffff" stroke="#355C7D" stroke-width="2"/>
+<rect x="761" y="208" width="48" height="26" rx="5" fill="#ffffff" stroke="#355C7D" stroke-width="2"/>
+<rect x="761" y="240" width="48" height="26" rx="5" fill="#ffffff" stroke="#355C7D" stroke-width="2"/>
+<rect x="761" y="272" width="48" height="26" rx="5" fill="#ffffff" stroke="#355C7D" stroke-width="2"/>
+<text x="785" y="332" text-anchor="middle" class="m">Target joint</text>
+<text x="785" y="354" text-anchor="middle" class="m">angles</text>
+
+</svg>

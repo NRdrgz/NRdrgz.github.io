@@ -2,8 +2,8 @@
 layout: post
 title: "(Part 2) Behind the scenes: how reinforcement learning and PPO actually work"
 date: 2025-12-02
-thumbnail: /assets/images/posts/thumbnails/double_pendulum_deep_dive_thumbnail.png
-hero_image: /assets/images/posts/hero-images/double_pendulum_deep_dive_hero.png
+thumbnail: /assets/images/posts/double-pendulum-deep-dive/thumbnail.png
+hero_image: /assets/images/posts/double-pendulum-deep-dive/hero.jpg
 excerpt: "A practical, intuitive walkthrough of reinforcement learning and PPO, using an inverted double pendulum as a running example."
 ---
 
@@ -32,7 +32,7 @@ If supervised learning is “**here’s the input, here’s the correct label, n
 > **“Here’s the world. Try things. I’ll tell you if you’re doing well or badly.”**
 
 
-![Hierarchy](/assets/images/posts/content/double_pendulum_deep_dive_hierarchy.png){: .img-large}
+![Hierarchy](/assets/images/posts/double-pendulum-deep-dive/hierarchy.png){: .img-large}
 
 
 Reinforcement learning has two advantages:
@@ -64,7 +64,7 @@ For the **double pendulum**:
   (see Part 1 to see our detailed Reward)
 
 
-![State](/assets/images/posts/content/double_pendulum_deep_dive_state.png){: .img-large}
+![State](/assets/images/posts/double-pendulum-deep-dive/state.png){: .img-large}
 
 The key idea:  
 The agent is **not** told *what* to do. It’s only told **how well it did**, using the reward signal.
@@ -72,7 +72,7 @@ The agent is **not** told *what* to do. It’s only told **how well it did**, us
 The tuple (state, action, reward, next state) is stored for learning.
 
 
-![Tuple](/assets/images/posts/content/double_pendulum_deep_dive_tuple.png){: .img-large}
+![Tuple](/assets/images/posts/double-pendulum-deep-dive/tuple.png){: .img-large}
 
 
 After a batch of steps, the agent uses all the accumulated data to **update the neural network parameters**.
@@ -137,7 +137,7 @@ The **policy** is the agent’s behavior. Its role is to output an action given 
 - Input: current state
 - Output: probability distribution over actions
 
-![Policy](/assets/images/posts/content/double_pendulum_deep_dive_policy.png){: .img-large}
+![Policy](/assets/images/posts/double-pendulum-deep-dive/policy.png){: .img-large}
 
 For continuous control like our double pendulum, the policy output is usually a **Gaussian distribution**:
 
@@ -168,7 +168,7 @@ $$
 
 In practice, we approximate this with another neural network, the **critic**.
 
-![Value](/assets/images/posts/content/double_pendulum_deep_dive_value.png){: .img-large}
+![Value](/assets/images/posts/double-pendulum-deep-dive/value.png){: .img-large}
 
 ### 4.3 Advantage function $A(s,a)$
 
@@ -189,7 +189,7 @@ Where:
 - If an action performed **better than expected**, advantage > 0 → push policy towards that action.
 - If it performed **worse than expected**, advantage < 0 → push policy away from that action.
 
-![Advantage](/assets/images/posts/content/double_pendulum_deep_dive_advantage.png){: .img-large}
+![Advantage](/assets/images/posts/double-pendulum-deep-dive/advantage.png){: .img-large}
 
 **Intuition with a Simple Example**
 
@@ -221,7 +221,7 @@ For continuous control (like a force on a cart), value-based methods become mess
 The mathematical reason behind it is that to perform value-based methods, we are looking to maximize the reward. However, if our action space is continuous, computing the max is an optimization problem, which makes this approach less efficient.
 </div>
 
-![ValueVsPolicy](/assets/images/posts/content/double_pendulum_deep_dive_value_vs_policy.png){: .img-large}
+![ValueVsPolicy](/assets/images/posts/double-pendulum-deep-dive/value_vs_policy.png){: .img-large}
 
 
 In the policy-based method, we call $\theta$ the policy parameters of our neural network.  
@@ -335,7 +335,7 @@ To wrap everything up, here is the complete training cycle used in an actor-crit
   - **Actor**: outputs actions given a state.
   - **Critic**: predicts the value of each state.
 
-![Init](/assets/images/posts/content/double_pendulum_deep_dive_init_models.png){: .img-medium}
+![Init](/assets/images/posts/double-pendulum-deep-dive/init_models.png){: .img-medium}
 
 ---
 
@@ -349,7 +349,7 @@ To wrap everything up, here is the complete training cycle used in an actor-crit
   - Next state: $s_{t+1}$
 - This set of transitions is called a **rollout**.
 
-![Rollout](/assets/images/posts/content/double_pendulum_deep_dive_rollout.png){: .img-medium}
+![Rollout](/assets/images/posts/double-pendulum-deep-dive/rollout.png){: .img-medium}
 
 ---
 
@@ -359,7 +359,7 @@ To wrap everything up, here is the complete training cycle used in an actor-crit
   - $V(s_t)$
   - $V(s_{t+1})$
 
-![Rollout](/assets/images/posts/content/double_pendulum_deep_dive_critic.png){: .img-medium}
+![Rollout](/assets/images/posts/double-pendulum-deep-dive/critic.png){: .img-medium}
 
 ---
 
@@ -371,7 +371,7 @@ To wrap everything up, here is the complete training cycle used in an actor-crit
   $$
 - This measures how "surprising" or "better or worse than expected" each outcome was.
 
-![TD](/assets/images/posts/content/double_pendulum_deep_dive_td.png){: .img-medium}
+![TD](/assets/images/posts/double-pendulum-deep-dive/td.png){: .img-medium}
 
 
 ---
@@ -384,7 +384,7 @@ To wrap everything up, here is the complete training cycle used in an actor-crit
   $$
 - This produces a smoothed, low-variance estimate of the advantage for each action.
 
-![TD](/assets/images/posts/content/double_pendulum_deep_dive_adv.png){: .img-medium}
+![TD](/assets/images/posts/double-pendulum-deep-dive/adv.png){: .img-medium}
 
 ---
 
@@ -396,14 +396,14 @@ To wrap everything up, here is the complete training cycle used in an actor-crit
   $$
 - This serves as the supervised learning target for the value network.
 
-![GT](/assets/images/posts/content/double_pendulum_deep_dive_gt.png){: .img-medium}
+![GT](/assets/images/posts/double-pendulum-deep-dive/gt.png){: .img-medium}
 
 - Update the critic by minimizing the mean-squared error between predicted values and return targets:
   $$
   L_{\text{critic}} = (V(s_t) - \hat{G}_t)^2
   $$
 
-![CriticTraining](/assets/images/posts/content/double_pendulum_deep_dive_critic_training.png){: .img-medium}
+![CriticTraining](/assets/images/posts/double-pendulum-deep-dive/critic_training.png){: .img-medium}
 
 ---
 
@@ -411,7 +411,7 @@ To wrap everything up, here is the complete training cycle used in an actor-crit
 
 - Using the policy, compute the log probability of each action.
 
-![Logpi](/assets/images/posts/content/double_pendulum_deep_dive_log_pi.png){: .img-medium}
+![Logpi](/assets/images/posts/double-pendulum-deep-dive/log_pi.png){: .img-medium}
 
 - Update the policy so that actions with positive advantage are more likely, and those with negative advantage are discouraged.
 - The basic policy loss is:
@@ -419,7 +419,7 @@ To wrap everything up, here is the complete training cycle used in an actor-crit
   L_{\text{actor}} = -\log \pi(a_t | s_t) \, A_t
   $$
 
-![Trainpolicy](/assets/images/posts/content/double_pendulum_deep_dive_train_policy.png){: .img-medium}
+![Trainpolicy](/assets/images/posts/double-pendulum-deep-dive/train_policy.png){: .img-medium}
 
 ---
 
