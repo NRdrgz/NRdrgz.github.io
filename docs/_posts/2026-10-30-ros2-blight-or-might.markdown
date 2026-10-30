@@ -260,6 +260,8 @@ You don't have to throw away ROS2 to use Copper. It has **bridges** to talk to t
 
 ![Copper bridges, as a comic](/assets/images/posts/ros2-copper/bridges_comic.svg){: .img-large}
 
+A question that comes up often: "one binary is nice, but I need several processes, for safety or reliability". For example, you want the motor controller to keep running even if the planner crashes. Copper handles this with **subsystems**: each one is its own Copper process with its own config, and a top-level file declares the typed **interconnects** between them. You still get one assembly line per process, and each process keeps its own log, so the whole system can still be replayed.
+
 ### The trade-offs
 
 Copper isn't free either:
