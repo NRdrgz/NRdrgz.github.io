@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" role="img" aria-label="ROS2 works like a postal service where delivery order can change between runs, while Copper works like an assembly line where tasks fill the same tray in a fixed order">
+<title>ROS2 works like a postal service where delivery order can change between runs, while Copper works like an assembly line where tasks fill the same tray in a fixed order</title>
+<defs>
+  <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 z" fill="#5b6470"/>
+  </marker>
+  <style>
+    text { font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; font-size: 19px; fill: #2E2E2E; }
+    .b { font-weight: 600; }
+    .m { fill: #5b6470; font-size: 16px; }
+    .s { font-size: 15px; fill: #5b6470; }
+    .mono { font-family: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace; font-size: 17px; }
+    .arrow { stroke: #5b6470; stroke-width: 2; fill: none; marker-end: url(#arr); }
+    .dash { stroke: #5b6470; stroke-width: 1.6; fill: none; stroke-dasharray: 6 5; }
+  </style>
+</defs>
+<rect width="960" height="580" fill="#ffffff"/>
+
+<text x="20" y="40" class="b">ROS2: a postal service</text>
+<text x="20" y="66" class="m">each node mails its messages, the post office decides when they arrive</text>
+<rect x="40" y="100" width="150" height="50" rx="25" fill="rgba(53,92,125,0.10)" stroke="#355C7D" stroke-width="2"/>
+<text x="115.0" y="131.0" text-anchor="middle" class="b">IMU</text>
+<rect x="40" y="190" width="150" height="50" rx="25" fill="rgba(53,92,125,0.10)" stroke="#355C7D" stroke-width="2"/>
+<text x="115.0" y="221.0" text-anchor="middle" class="b">lidar</text>
+<rect x="380" y="125" width="200" height="90" rx="10" fill="#FFF1D1" stroke="#C99A2E" stroke-width="2"/>
+<text x="480.0" y="165.0" text-anchor="middle" class="b">DDS</text>
+<text x="480.0" y="187.0" text-anchor="middle" class="m">the post office</text>
+<rect x="770" y="100" width="150" height="50" rx="25" fill="rgba(53,92,125,0.10)" stroke="#355C7D" stroke-width="2"/>
+<text x="845.0" y="131.0" text-anchor="middle" class="b">filter</text>
+<rect x="770" y="190" width="150" height="50" rx="25" fill="rgba(53,92,125,0.10)" stroke="#355C7D" stroke-width="2"/>
+<text x="845.0" y="221.0" text-anchor="middle" class="b">planner</text>
+<line class="arrow" x1="190" y1="125" x2="378" y2="150"/>
+<line class="arrow" x1="190" y1="215" x2="378" y2="190"/>
+<line class="arrow" x1="580" y1="150" x2="768" y2="125"/>
+<line class="arrow" x1="580" y1="190" x2="768" y2="215"/>
+<rect x="270" y="127" width="30" height="20" rx="3" fill="#ffffff" stroke="#355C7D" stroke-width="1.8"/><path d="M270,127 L285,139 L300,127" fill="none" stroke="#355C7D" stroke-width="1.8"/>
+<rect x="270" y="193" width="30" height="20" rx="3" fill="#ffffff" stroke="#355C7D" stroke-width="1.8"/><path d="M270,193 L285,205 L300,193" fill="none" stroke="#355C7D" stroke-width="1.8"/>
+<rect x="660" y="127" width="30" height="20" rx="3" fill="#ffffff" stroke="#355C7D" stroke-width="1.8"/><path d="M660,127 L675,139 L690,127" fill="none" stroke="#355C7D" stroke-width="1.8"/>
+<rect x="660" y="193" width="30" height="20" rx="3" fill="#ffffff" stroke="#355C7D" stroke-width="1.8"/><path d="M660,193 L675,205 L690,193" fill="none" stroke="#355C7D" stroke-width="1.8"/>
+<text x="480" y="252" text-anchor="middle" class="s">run 1: IMU first, then lidar</text>
+<text x="480" y="274" text-anchor="middle" class="s">run 2: lidar first, then IMU</text>
+<line x1="20" y1="310" x2="940" y2="310" stroke="#d4d9df" stroke-width="2"/>
+<text x="20" y="352" class="b">Copper: an assembly line</text>
+<text x="20" y="378" class="m">every task works on the same tray, in the same order, every cycle</text>
+
+<rect x="60" y="404" width="150" height="52" rx="10" fill="rgba(53,92,125,0.10)" stroke="#355C7D" stroke-width="2"/>
+<text x="135.0" y="436.0" text-anchor="middle" class="b">imu</text>
+<circle cx="60" cy="404" r="14" fill="#FFC857" stroke="#C99A2E" stroke-width="2"/>
+<text x="60" y="410" text-anchor="middle" class="b" style="font-size:16px">1</text>
+<line class="dash" x1="135" y1="456" x2="135" y2="472"/>
+<rect x="69" y="474" width="132" height="40" rx="6" fill="#f6f8fa" stroke="#5b6470" stroke-width="2"/>
+<rect x="79" y="482" width="32" height="24" rx="4" fill="#355C7D" fill-opacity="0.75" stroke="#355C7D" stroke-width="1.6"/>
+<rect x="119" y="482" width="32" height="24" rx="4" fill="#ffffff" fill-opacity="1" stroke="#355C7D" stroke-width="1.6"/>
+<rect x="159" y="482" width="32" height="24" rx="4" fill="#ffffff" fill-opacity="1" stroke="#355C7D" stroke-width="1.6"/>
+<line class="arrow" x1="210" y1="430" x2="272" y2="430"/>
+<rect x="290" y="404" width="150" height="52" rx="10" fill="rgba(53,92,125,0.10)" stroke="#355C7D" stroke-width="2"/>
+<text x="365.0" y="436.0" text-anchor="middle" class="b">filter</text>
+<circle cx="290" cy="404" r="14" fill="#FFC857" stroke="#C99A2E" stroke-width="2"/>
+<text x="290" y="410" text-anchor="middle" class="b" style="font-size:16px">2</text>
+<line class="dash" x1="365" y1="456" x2="365" y2="472"/>
+<rect x="299" y="474" width="132" height="40" rx="6" fill="#f6f8fa" stroke="#5b6470" stroke-width="2"/>
+<rect x="309" y="482" width="32" height="24" rx="4" fill="#355C7D" fill-opacity="0.75" stroke="#355C7D" stroke-width="1.6"/>
+<rect x="349" y="482" width="32" height="24" rx="4" fill="#355C7D" fill-opacity="0.75" stroke="#355C7D" stroke-width="1.6"/>
+<rect x="389" y="482" width="32" height="24" rx="4" fill="#ffffff" fill-opacity="1" stroke="#355C7D" stroke-width="1.6"/>
+<line class="arrow" x1="440" y1="430" x2="502" y2="430"/>
+<rect x="520" y="404" width="150" height="52" rx="10" fill="rgba(53,92,125,0.10)" stroke="#355C7D" stroke-width="2"/>
+<text x="595.0" y="436.0" text-anchor="middle" class="b">controller</text>
+<circle cx="520" cy="404" r="14" fill="#FFC857" stroke="#C99A2E" stroke-width="2"/>
+<text x="520" y="410" text-anchor="middle" class="b" style="font-size:16px">3</text>
+<line class="dash" x1="595" y1="456" x2="595" y2="472"/>
+<rect x="529" y="474" width="132" height="40" rx="6" fill="#f6f8fa" stroke="#5b6470" stroke-width="2"/>
+<rect x="539" y="482" width="32" height="24" rx="4" fill="#355C7D" fill-opacity="0.75" stroke="#355C7D" stroke-width="1.6"/>
+<rect x="579" y="482" width="32" height="24" rx="4" fill="#355C7D" fill-opacity="0.75" stroke="#355C7D" stroke-width="1.6"/>
+<rect x="619" y="482" width="32" height="24" rx="4" fill="#355C7D" fill-opacity="0.75" stroke="#355C7D" stroke-width="1.6"/>
+<line class="arrow" x1="670" y1="430" x2="732" y2="430"/>
+<rect x="750" y="404" width="150" height="52" rx="10" fill="rgba(53,92,125,0.10)" stroke="#355C7D" stroke-width="2"/>
+<text x="825.0" y="436.0" text-anchor="middle" class="b">motors</text>
+<circle cx="750" cy="404" r="14" fill="#FFC857" stroke="#C99A2E" stroke-width="2"/>
+<text x="750" y="410" text-anchor="middle" class="b" style="font-size:16px">4</text>
+<line class="dash" x1="825" y1="456" x2="825" y2="472"/>
+<rect x="759" y="474" width="132" height="40" rx="6" fill="#f6f8fa" stroke="#5b6470" stroke-width="2"/>
+<rect x="769" y="482" width="32" height="24" rx="4" fill="#355C7D" fill-opacity="0.75" stroke="#355C7D" stroke-width="1.6"/>
+<rect x="809" y="482" width="32" height="24" rx="4" fill="#355C7D" fill-opacity="0.75" stroke="#355C7D" stroke-width="1.6"/>
+<rect x="849" y="482" width="32" height="24" rx="4" fill="#355C7D" fill-opacity="0.75" stroke="#355C7D" stroke-width="1.6"/>
+<rect x="40" y="516" width="880" height="16" rx="8" fill="#d4d9df"/>
+<circle cx="60" cy="524" r="5" fill="#ffffff" stroke="#5b6470" stroke-width="1.5"/>
+<circle cx="100" cy="524" r="5" fill="#ffffff" stroke="#5b6470" stroke-width="1.5"/>
+<circle cx="140" cy="524" r="5" fill="#ffffff" stroke="#5b6470" stroke-width="1.5"/>
+<circle cx="180" cy="524" r="5" fill="#ffffff" stroke="#5b6470" stroke-width="1.5"/>
+<circle cx="220" cy="524" r="5" fill="#ffffff" stroke="#5b6470" stroke-width="1.5"/>
+<circle cx="260" cy="524" r="5" fill="#ffffff" stroke="#5b6470" stroke-width="1.5"/>
+<circle cx="300" cy="524" r="5" fill="#ffffff" stroke="#5b6470" stroke-width="1.5"/>
+<circle cx="340" cy="524" r="5" fill="#ffffff" stroke="#5b6470" stroke-width="1.5"/>
+<circle cx="380" cy="524" r="5" fill="#ffffff" stroke="#5b6470" stroke-width="1.5"/>
+<circle cx="420" cy="524" r="5" fill="#ffffff" stroke="#5b6470" stroke-width="1.5"/>
+<circle cx="460" cy="524" r="5" fill="#ffffff" stroke="#5b6470" stroke-width="1.5"/>
+<circle cx="500" cy="524" r="5" fill="#ffffff" stroke="#5b6470" stroke-width="1.5"/>
+<circle cx="540" cy="524" r="5" fill="#ffffff" stroke="#5b6470" stroke-width="1.5"/>
+<circle cx="580" cy="524" r="5" fill="#ffffff" stroke="#5b6470" stroke-width="1.5"/>
+<circle cx="620" cy="524" r="5" fill="#ffffff" stroke="#5b6470" stroke-width="1.5"/>
+<circle cx="660" cy="524" r="5" fill="#ffffff" stroke="#5b6470" stroke-width="1.5"/>
+<circle cx="700" cy="524" r="5" fill="#ffffff" stroke="#5b6470" stroke-width="1.5"/>
+<circle cx="740" cy="524" r="5" fill="#ffffff" stroke="#5b6470" stroke-width="1.5"/>
+<circle cx="780" cy="524" r="5" fill="#ffffff" stroke="#5b6470" stroke-width="1.5"/>
+<circle cx="820" cy="524" r="5" fill="#ffffff" stroke="#5b6470" stroke-width="1.5"/>
+<circle cx="860" cy="524" r="5" fill="#ffffff" stroke="#5b6470" stroke-width="1.5"/>
+<circle cx="900" cy="524" r="5" fill="#ffffff" stroke="#5b6470" stroke-width="1.5"/>
+<line class="arrow" x1="820" y1="556" x2="920" y2="556"/>
+<text x="40" y="562" class="s">one CopperList per cycle, preallocated, filled slot by slot, then logged as a whole</text>
+</svg>

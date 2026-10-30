@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 470" role="img" aria-label="A small robot as a ROS2 graph: nodes publish and subscribe to topics such as /scan, /imu/data, /map and /cmd_vel">
+<title>A small robot as a ROS2 graph: nodes publish and subscribe to topics such as /scan, /imu/data, /map and /cmd_vel</title>
+<defs>
+  <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 z" fill="#5b6470"/>
+  </marker>
+  <style>
+    text { font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; font-size: 19px; fill: #2E2E2E; }
+    .b { font-weight: 600; }
+    .m { fill: #5b6470; font-size: 16px; }
+    .s { font-size: 15px; fill: #5b6470; }
+    .mono { font-family: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace; font-size: 17px; }
+    .arrow { stroke: #5b6470; stroke-width: 2; fill: none; marker-end: url(#arr); }
+    .dash { stroke: #5b6470; stroke-width: 1.6; fill: none; stroke-dasharray: 6 5; }
+  </style>
+</defs>
+<rect width="960" height="470" fill="#ffffff"/>
+
+<rect x="20" y="55" width="160" height="50" rx="25" fill="rgba(53,92,125,0.10)" stroke="#355C7D" stroke-width="2"/>
+<text x="100.0" y="86.0" text-anchor="middle" class="b">lidar driver</text>
+<rect x="225" y="58" width="110" height="44" rx="6" fill="#ffffff" stroke="#d4d9df" stroke-width="2"/>
+<text x="280.0" y="86.0" text-anchor="middle" class="mono">/scan</text>
+<rect x="380" y="55" width="150" height="50" rx="25" fill="rgba(53,92,125,0.10)" stroke="#355C7D" stroke-width="2"/>
+<text x="455.0" y="86.0" text-anchor="middle" class="b">RTAB-Map</text>
+<rect x="575" y="58" width="100" height="44" rx="6" fill="#ffffff" stroke="#d4d9df" stroke-width="2"/>
+<text x="625.0" y="86.0" text-anchor="middle" class="mono">/map</text>
+<rect x="720" y="55" width="130" height="50" rx="25" fill="rgba(53,92,125,0.10)" stroke="#355C7D" stroke-width="2"/>
+<text x="785.0" y="86.0" text-anchor="middle" class="b">Nav2</text>
+<rect x="10" y="175" width="200" height="50" rx="25" fill="rgba(53,92,125,0.10)" stroke="#355C7D" stroke-width="2"/>
+<text x="110.0" y="206.0" text-anchor="middle" class="b">IMU + Madgwick</text>
+<rect x="235" y="178" width="120" height="44" rx="6" fill="#ffffff" stroke="#d4d9df" stroke-width="2"/>
+<text x="295.0" y="206.0" text-anchor="middle" class="mono">/imu/data</text>
+<rect x="370" y="287" width="180" height="50" rx="25" fill="rgba(53,92,125,0.10)" stroke="#355C7D" stroke-width="2"/>
+<text x="460.0" y="318.0" text-anchor="middle" class="b">gamepad teleop</text>
+<rect x="600" y="290" width="110" height="44" rx="6" fill="#ffffff" stroke="#d4d9df" stroke-width="2"/>
+<text x="655.0" y="318.0" text-anchor="middle" class="mono">/cmd_vel</text>
+<rect x="760" y="287" width="170" height="50" rx="25" fill="rgba(53,92,125,0.10)" stroke="#355C7D" stroke-width="2"/>
+<text x="845.0" y="318.0" text-anchor="middle" class="b">motor driver</text>
+<line class="arrow" x1="180" y1="80" x2="223" y2="80"/>
+<line class="arrow" x1="335" y1="80" x2="378" y2="80"/>
+<line class="arrow" x1="530" y1="80" x2="573" y2="80"/>
+<line class="arrow" x1="675" y1="80" x2="718" y2="80"/>
+<line class="arrow" x1="210" y1="200" x2="233" y2="200"/>
+<line class="arrow" x1="355" y1="195" x2="430" y2="108"/>
+<line class="arrow" x1="785" y1="105" x2="690" y2="288"/>
+<line class="arrow" x1="550" y1="312" x2="598" y2="312"/>
+<line class="arrow" x1="710" y1="312" x2="758" y2="312"/>
+<rect x="20" y="395" width="200" height="50" rx="25" fill="rgba(53,92,125,0.10)" stroke="#355C7D" stroke-width="2"/>
+<text x="120.0" y="426.0" text-anchor="middle" class="b">foxglove_bridge</text>
+<path class="dash" d="M120,395 L120,330 Q120,250 260,224"/>
+<path class="dash" d="M220,420 L640,420 Q655,420 655,336"/>
+<text x="240" y="408" class="s">listens to any topic you whitelist</text>
+<rect x="700" y="14" width="44" height="24" rx="12" fill="rgba(53,92,125,0.10)" stroke="#355C7D" stroke-width="2"/>
+<text x="754" y="32" class="s" style="fill:#2E2E2E">node</text>
+<rect x="820" y="14" width="44" height="24" rx="5" fill="#ffffff" stroke="#d4d9df" stroke-width="2"/>
+<text x="874" y="32" class="s" style="fill:#2E2E2E">topic</text>
+
+</svg>

@@ -269,6 +269,7 @@ hr {
 .post-card {
   display: grid;
   grid-template-columns: 200px 1fr;
+  min-height: 222px;          /* fits a two-line title, so every thumbnail is the same size */
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
@@ -286,8 +287,8 @@ hr {
   display: block;
   position: relative;
   background: var(--bg-subtle);
-  aspect-ratio: 1 / 1;        /* matches the square post thumbnails */
-  align-self: stretch;        /* fill card height if content is taller */
+  min-height: 200px;          /* square with the 200px column on short cards */
+  align-self: stretch;        /* fill card height without widening the column */
   overflow: hidden;
 }
 .post-media img {
@@ -336,6 +337,12 @@ hr {
   margin: 0 0 16px;
   line-height: 1.6;
   font-size: 0.97rem;
+  /* keep cards (and their thumbnails) the same height */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
 }
 
 .post-link {
